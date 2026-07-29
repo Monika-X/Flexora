@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexora | Services & Classes</title>
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/rtl.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/script.js"></script>
+
+  <style>
+    .filter-tab-btn.active,
+    .filter-tab-btn:hover {
+      border-color: var(--color-primary) !important;
+      color: var(--color-primary) !important;
+      background: rgba(214, 255, 63, 0.02) !important;
+    }
+
+    .service-item {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Hero -->
+  <section class="hero-section hero-dark"
+    style="padding: 150px 0 80px; text-align: center; border-bottom: 1px solid var(--color-border); background-image: linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.9)), url('https://images.unsplash.com/photo-1593079831268-3381b0c1239b?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container reveal">
+      <h1 style="font-size: 4rem; text-transform: uppercase;">Classes & <span class="text-primary">Services</span></h1>
+      <p style="font-size: 1.2rem; color: var(--color-text); max-width: 600px; margin: 1rem auto 0;">Train your way. We
+        have the space, the gear, and the experts.</p>
+    </div>
+  </section>
+
+  <!-- 2. Personal Training -->
+  <section style="padding: 100px 0;">
+    <div class="container">
+      <div class="reveal"
+        style="position: relative; border-radius: 24px; overflow: hidden; min-height: 500px; display: flex; align-items: center; padding: 4rem 2rem;">
+        <!-- Background Image -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80"
+            alt="Personal Training" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6);">
+        </div>
+
+        <!-- Floating Content Card -->
+        <div class="card hover-lift"
+          style="position: relative; z-index: 2; max-width: 500px; padding: 3rem; margin-left: 5%; box-shadow: var(--shadow-lg); background: var(--color-surface); border: none;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <i class="fas fa-user-friends text-primary" style="font-size: 2.5rem;"></i>
+            <h2 style="margin: 0; font-size: 2.2rem; line-height: 1.1;">Personal<br>Training</h2>
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+            One-on-one sessions tailored specifically to your goals, body type, and fitness level. Whether recovering
+            from an injury or preparing for competition, our elite coaches build a custom roadmap for you.</p>
+          <ul style="list-style: none; padding: 0; color: var(--color-text); font-weight: 500; margin-bottom: 0;">
+            <li style="margin-bottom: 12px; display: flex; align-items: center;"><i class="fas fa-check text-primary"
+                style="margin-right: 12px; font-size: 1.2rem;"></i> Biomechanical assessment</li>
+            <li style="margin-bottom: 12px; display: flex; align-items: center;"><i class="fas fa-check text-primary"
+                style="margin-right: 12px; font-size: 1.2rem;"></i> Custom periodization programming</li>
+            <li style="margin-bottom: 0; display: flex; align-items: center;"><i class="fas fa-check text-primary"
+                style="margin-right: 12px; font-size: 1.2rem;"></i> Nutritional guidance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Training Sessions & Classes Grid -->
+  <section
+    style="background-color: var(--color-bg-alt); padding: 100px 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header reveal text-center" style="text-align: center; margin-bottom: 4rem;">
+        <span
+          style="display: inline-block; background: var(--color-primary-transparent); color: var(--color-primary); border: 1px solid rgba(214,255,63,0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Training
+          Sessions</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-heading);">Weekly Class <span
+            class="text-primary">Timings</span></h2>
+        <p style="color: var(--color-text-muted); font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Join our
+          high-energy training sessions led by expert coaches. Secure your booking through the member dashboard.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="services-filter-tabs reveal"
+        style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+        <button class="filter-tab-btn active" onclick="filterServices('all')">All Classes</button>
+        <button class="filter-tab-btn" onclick="filterServices('strength')">Strength & Power</button>
+        <button class="filter-tab-btn" onclick="filterServices('cardio')">Cardio & HIIT</button>
+        <button class="filter-tab-btn" onclick="filterServices('recovery')">Mind & Recovery</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem;">
+
+        <!-- Class 1: Strength & Conditioning -->
+        <div class="card reveal hover-lift service-item strength"
+          style="overflow: hidden; background: var(--color-bg);">
+          <div style="height: 200px; overflow: hidden; position: relative;">
+            <img src="https://plus.unsplash.com/premium_photo-1661962342128-505f8032ea45?w=600&auto=format&fit=crop&q=60"
+              alt="Strength Class" style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.8); border: 1px solid var(--color-primary); color: var(--color-primary); border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">60
+              Min</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div
+              style="color: var(--color-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 0.5rem;">
+              <i class="far fa-calendar-alt"></i> Mon, Wed, Fri • 6:00 PM</div>
+            <h3
+              style="font-size: 1.4rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+              Strength & Conditioning</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              High-intensity functional movements, barbell complexes, and kettlebell work designed to build raw power
+              and endurance.</p>
+            <div
+              style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted);">
+              <span>Coach: <strong>Alex M.</strong></span>
+              <span>Level: <strong>All Levels</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class 2: Cardio & Spin -->
+        <div class="card reveal delay-100 hover-lift service-item cardio"
+          style="overflow: hidden; background: var(--color-bg);">
+          <div style="height: 200px; overflow: hidden; position: relative;">
+            <img src="https://plus.unsplash.com/premium_photo-1664109999528-c6660541202e?w=600&auto=format&fit=crop&q=60"
+              alt="Spin Class" style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.8); border: 1px solid var(--color-secondary); color: var(--color-secondary); border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">45
+              Min</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div
+              style="color: var(--color-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 0.5rem;">
+              <i class="far fa-calendar-alt"></i> Tue, Thu • 7:00 AM</div>
+            <h3
+              style="font-size: 1.4rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+              Cardio & Spin</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Heart-pumping cycling intervals set to high-energy music in our nightclub-grade audio and immersive light
+              studio.</p>
+            <div
+              style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted);">
+              <span>Coach: <strong>Jordan L.</strong></span>
+              <span>Level: <strong>All Levels</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class 3: Yoga & Flow -->
+        <div class="card reveal delay-200 hover-lift service-item recovery"
+          style="overflow: hidden; background: var(--color-bg);">
+          <div style="height: 200px; overflow: hidden; position: relative;">
+            <img src="https://plus.unsplash.com/premium_photo-1661777196224-bfda51e61cfd?w=600&auto=format&fit=crop&q=60"
+              alt="Yoga Class" style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.8); border: 1px solid var(--color-primary); color: var(--color-primary); border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">60
+              Min</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div
+              style="color: var(--color-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 0.5rem;">
+              <i class="far fa-calendar-alt"></i> Wed, Fri, Sat • 9:00 AM</div>
+            <h3
+              style="font-size: 1.4rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+              Yoga & Recovery</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Improve joint range of motion, muscle length, core strength, and breathing control inside our quiet studio
+              space.</p>
+            <div
+              style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted);">
+              <span>Coach: <strong>Jamie T.</strong></span>
+              <span>Level: <strong>Beginner Friendly</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class 4: Olympic Weightlifting -->
+        <div class="card reveal hover-lift service-item strength"
+          style="overflow: hidden; background: var(--color-bg);">
+          <div style="height: 200px; overflow: hidden; position: relative;">
+            <img src="https://plus.unsplash.com/premium_photo-1664109999537-088e7d964da2?w=600&auto=format&fit=crop&q=60"
+              alt="Olympic Weightlifting" style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.8); border: 1px solid var(--color-secondary); color: var(--color-secondary); border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">90
+              Min</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div
+              style="color: var(--color-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 0.5rem;">
+              <i class="far fa-calendar-alt"></i> Tue, Thu • 6:30 PM</div>
+            <h3
+              style="font-size: 1.4rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+              Olympic Weightlifting</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Master the biomechanics of Snatch and Clean & Jerk. Structured lessons focusing on bar speed, power
+              delivery, and receiving form.</p>
+            <div
+              style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted);">
+              <span>Coach: <strong>Alex M.</strong></span>
+              <span>Level: <strong>Intermediate</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class 5: HIIT Circuit Blast -->
+        <div class="card reveal delay-100 hover-lift service-item cardio"
+          style="overflow: hidden; background: var(--color-bg);">
+          <div style="height: 200px; overflow: hidden; position: relative;">
+            <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600&auto=format&fit=crop&q=60"
+              alt="HIIT Blast" style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.8); border: 1px solid var(--color-primary); color: var(--color-primary); border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">45
+              Min</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div
+              style="color: var(--color-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 0.5rem;">
+              <i class="far fa-calendar-alt"></i> Mon, Wed • 5:00 PM</div>
+            <h3
+              style="font-size: 1.4rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+              HIIT Circuit Blast</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Fast-paced functional circuits utilizing medicine balls, slam ropes, and rowing machines to torch fat and
+              increase aerobic capacity.</p>
+            <div
+              style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted);">
+              <span>Coach: <strong>Jordan L.</strong></span>
+              <span>Level: <strong>All Levels</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class 6: Joint Mobility & Core -->
+        <div class="card reveal delay-200 hover-lift service-item recovery"
+          style="overflow: hidden; background: var(--color-bg);">
+          <div style="height: 200px; overflow: hidden; position: relative;">
+            <img src="https://media.istockphoto.com/id/2264708127/photo/senior-woman-over-75-exercising-on-leg-press-machine-in-gym-active-aging-and-strength.webp?a=1&b=1&s=612x612&w=0&k=20&c=lW9RUC-ovqGJfVehE0aVyQ8BXgAdqfWxHRyCIflDJ3Q="
+              alt="Mobility Class" style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.8); border: 1px solid var(--color-secondary); color: var(--color-secondary); border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">50
+              Min</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div
+              style="color: var(--color-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 0.5rem;">
+              <i class="far fa-calendar-alt"></i> Saturday • 11:00 AM</div>
+            <h3
+              style="font-size: 1.4rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+              Longevity & Mobility</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Targeted tissue decompression, core stabilizing, and functional range release to bulletproof lower back
+              and knee joints.</p>
+            <div
+              style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted);">
+              <span>Coach: <strong>Jamie T.</strong></span>
+              <span>Level: <strong>All Levels</strong></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Additional Services & Wellness Suite -->
+  <section style="padding: 100px 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header reveal text-center" style="text-align: center; margin-bottom: 4rem;">
+        <span
+          style="display: inline-block; background: rgba(255, 90, 54, 0.1); color: var(--color-secondary); border: 1px solid rgba(255, 90, 54, 0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Wellness
+          & Recovery</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-heading);">Additional <span
+            class="text-primary">Offerings</span></h2>
+        <p style="color: var(--color-text-muted); font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Supplement your
+          training routine with our auxiliary recovery systems and nutritional consultations.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+
+        <!-- Offering 1: Infrared Sauna & Cold Plunge -->
+        <div class="reveal hover-lift" style="text-align: center; padding: 1rem;">
+          <div
+            style="width: 70px; height: 70px; border-radius: 50%; background: var(--color-primary-transparent); border: 1px solid rgba(214,255,63,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <i class="fas fa-hot-tub" style="font-size: 2rem; color: var(--color-primary);"></i>
+          </div>
+          <h3
+            style="font-size: 1.3rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+            Sauna & Cold Plunge</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.6;">Dissipate systemic soreness,
+            decrease muscular inflammation, and improve vascular health inside our dry saunas and ice tubs.</p>
+        </div>
+
+        <!-- Offering 2: Sports Nutrition consultations -->
+        <div class="reveal delay-100 hover-lift" style="text-align: center; padding: 1rem;">
+          <div
+            style="width: 70px; height: 70px; border-radius: 50%; background: rgba(255, 90, 54, 0.1); border: 1px solid rgba(255, 90, 54, 0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <i class="fas fa-apple-alt" style="font-size: 2rem; color: var(--color-secondary);"></i>
+          </div>
+          <h3
+            style="font-size: 1.3rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+            Sports Dietetics</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.6;">Book 1-on-1 consultations
+            with Chris to receive target macronutrient parameters and personalized grocery guides built for performance.
+          </p>
+        </div>
+
+        <!-- Offering 3: Body Composition Scan -->
+        <div class="reveal delay-200 hover-lift" style="text-align: center; padding: 1rem;">
+          <div
+            style="width: 70px; height: 70px; border-radius: 50%; background: var(--color-primary-transparent); border: 1px solid rgba(214,255,63,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <i class="fas fa-chart-pie" style="font-size: 2rem; color: var(--color-primary);"></i>
+          </div>
+          <h3
+            style="font-size: 1.3rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+            InBody Composition Scans</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.6;">Track changes in dry lean
+            mass, segmental fat distribution, and water balance over time using bio-electrical impedance metrics.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Pricing Table -->
+  <section class="pricing-section"
+    style="background-color: var(--color-bg-alt); position: relative; overflow: hidden; padding: 100px 0;">
+    <!-- Abstract Background Element -->
+    <div
+      style="position: absolute; top: 0%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(214,255,63,0.05) 0%, rgba(18,18,18,0) 70%); border-radius: 50%; pointer-events: none;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="section-header reveal text-center" style="margin-bottom: 4rem;">
+        <h2 style="font-size: 3rem; text-transform: uppercase;">Membership <span class="text-primary">Pricing</span>
+        </h2>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted);">Choose the plan that fits your goals. No
+          initiation fees.</p>
+      </div>
+
+      <div
+        style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; align-items: stretch;">
+
+        <!-- Basic -->
+        <div class="pricing-card pricing-card-premium reveal delay-100">
+          <h3 style="font-size: 1.6rem; color: var(--text-inverse); letter-spacing: 1px; text-transform: uppercase;">
+            Basic Access</h3>
+          <div class="pricing-price">$49<span
+              style="font-size: 1.2rem; color: var(--text-inverse); font-weight: 500;">/mo</span></div>
+          <p style="color: var(--text-inverse); font-size: 0.95rem; margin-bottom: 2rem;">Perfect for the independent
+            lifter.</p>
+          <ul class="pricing-list">
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">24/7 Gym Access</strong></li>
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">Locker Room Access</strong></li>
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">1 Group Class / Month</strong>
+            </li>
+            <li><i class="fas fa-times" style="color: var(--color-secondary);"></i> <strong
+                style="color: var(--color-secondary);">Recovery Zone</strong></li>
+            <li><i class="fas fa-times" style="color: var(--color-secondary);"></i> <strong
+                style="color: var(--color-secondary);">Personal Training</strong></li>
+          </ul>
+          <a href="signup.html" class="btn btn-secondary hover-scale"
+            style="width: 100%; padding: 15px; font-size: 1.1rem; border-radius: 8px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Join Flexora</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="pricing-card pricing-card-premium reveal delay-200">
+          <div
+            style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, var(--color-primary), #e8ff80); color: var(--color-bg); padding: 6px 24px; border-radius: 0 0 16px 16px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 5px 15px rgba(214,255,63,0.3); white-space: nowrap; z-index: 10;">
+            Most Popular</div>
+
+          <h3
+            style="font-size: 1.8rem; color: var(--color-primary-text); letter-spacing: 1px; text-transform: uppercase; margin-top: 1rem;">
+            Premium Elite</h3>
+          <div class="pricing-price">$89<span
+              style="font-size: 1.2rem; color: var(--text-inverse); font-weight: 500;">/mo</span></div>
+          <p style="color: var(--text-inverse); font-size: 0.95rem; margin-bottom: 2rem;">The ultimate all-inclusive
+            fitness experience.</p>
+          <ul class="pricing-list">
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">24/7 Gym Access</strong></li>
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">Locker Room & Saunas</strong>
+            </li>
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">Unlimited Group Classes</strong>
+            </li>
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">Full Recovery Zone
+                Access</strong></li>
+          </ul>
+          <a href="signup.html" class="btn btn-primary pulse-border hover-scale"
+            style="width: 100%; padding: 15px; font-size: 1.1rem; border-radius: 8px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Join Flexora</a>
+        </div>
+
+        <!-- Elite Coaching -->
+        <div class="pricing-card pricing-card-premium reveal delay-300">
+          <h3 style="font-size: 1.6rem; color: var(--text-inverse); letter-spacing: 1px; text-transform: uppercase;">
+            Elite Coaching</h3>
+          <div class="pricing-price">$199<span
+              style="font-size: 1.2rem; color: var(--text-inverse); font-weight: 500;">/mo</span></div>
+          <p style="color: var(--text-inverse); font-size: 0.95rem; margin-bottom: 2rem;">1-on-1 personalized guidance.
+          </p>
+          <ul class="pricing-list">
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">Everything in Premium</strong>
+            </li>
+            <li><i class="fas fa-bolt text-secondary"></i> <strong class="text-secondary">4 PT Sessions / Month</strong>
+            </li>
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">Custom Nutrition Macros</strong>
+            </li>
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">Dedicated Locker</strong></li>
+            <li><i class="fas fa-check text-primary"></i> <strong class="text-primary">Priority Booking</strong></li>
+          </ul>
+          <a href="signup.html" class="btn hover-scale"
+            style="width: 100%; padding: 15px; font-size: 1.1rem; border-radius: 8px; background-color: transparent; border: 2px solid var(--color-primary); color: var(--text-inverse); text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Join Flexora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA -->
+  <section class="reveal hover-scale"
+    style="background-color: var(--color-primary); color: var(--color-bg); text-align: center; padding: 80px 0; border-radius: 0;">
+    <div class="container">
+      <h2 style="color: var(--color-bg); font-size: 3rem; margin-bottom: 1rem;">Ready to Train?</h2>
+      <p style="color: var(--color-bg); margin-bottom: 2rem; font-size: 1.1rem;">Members can book classes easily through
+        the dashboard.</p>
+      <a href="signup.html" class="btn btn-primary pulse-border hover-scale"
+        style="padding: 15px 40px; font-size: 1.1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Join Flexora</a>
+    </div>
+  </section>
+
+  <!-- Interactive Services Filter Script -->
+  <script>
+    function filterServices(category) {
+      // Toggle active classes on tab buttons
+      document.querySelectorAll('.filter-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+
+      // Filter card items with transition delay
+      document.querySelectorAll('.service-item').forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1)';
+          }, 50);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 300);
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

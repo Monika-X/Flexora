@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexora | Admin Dashboard</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <script src="../js/theme.js"></script>
+  <script src="../js/rtl.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/admin.js"></script>
+</head>
+<body data-no-navbar="true">
+
+  <div style="position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000;">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle Theme" style="background: var(--glass-bg-strong); border: 1px solid var(--glass-border); border-radius: 8px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text); font-size: 1.2rem; backdrop-filter: blur(10px);">
+      <i class="theme-icon fas fa-sun"></i>
+    </button>
+    <button class="control-btn" onclick="toggleRTL()" aria-label="Toggle RTL" style="background: var(--glass-bg-strong); border: 1px solid var(--glass-border); border-radius: 8px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text); font-size: 1rem; font-weight: bold; font-family: var(--font-body); backdrop-filter: blur(10px);">
+      <span id="rtlToggleText">LTR</span>
+    </button>
+  </div>
+
+  <section style="padding: 40px 0 60px; border-bottom: 1px solid var(--color-border); background-color: var(--color-bg-alt);">
+    <div class="container reveal">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <h1 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 10px;">Admin <span class="text-secondary">Portal</span></h1>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div class="stat-chip">
+              <i class="fas fa-users text-secondary"></i> 5,204 Total Members
+            </div>
+            <div class="stat-chip">
+              <i class="fas fa-walking text-primary"></i> 342 Active Today
+            </div>
+            <div class="stat-chip">
+              <i class="fas fa-dumbbell text-primary"></i> 42 Classes This Week
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 40px 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        
+        <!-- Member Management -->
+        <div class="card reveal hover-lift" style="padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3 style="color: var(--color-secondary);"><i class="fas fa-users"></i> Member Roster</h3>
+            <span class="badge badge-inactive">Requires Action (2)</span>
+          </div>
+          
+          <div class="form-group" style="position: relative; margin-bottom: 1.5rem;">
+            <i class="fas fa-search" style="position: absolute; left: 15px; top: 15px; color: var(--color-text-muted);"></i>
+            <input type="text" id="memberSearch" class="form-control" placeholder="Search members by name..." style="padding-left: 40px;">
+          </div>
+
+          <div id="adminMemberList" style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- Rendered by admin.js -->
+          </div>
+        </div>
+
+        <!-- Class Management -->
+        <div class="card reveal delay-100 hover-lift" style="padding: 1.5rem; border-color: var(--color-primary);">
+          <h3 style="margin-bottom: 1.5rem; color: var(--color-primary);"><i class="fas fa-calendar-alt"></i> Schedule Management</h3>
+          
+          <div id="adminClassList" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem;">
+            <!-- Rendered by admin.js -->
+          </div>
+          
+          <h4 style="margin-bottom: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">Schedule New Class</h4>
+          <form id="addClassForm" style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border-faint); margin-top: 1rem;">
+            <div class="form-group" style="position: relative; margin-bottom: 1.5rem;">
+              <label class="form-label" style="color: var(--color-primary); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fas fa-tag" style="margin-right: 8px;"></i>Class Name</label>
+              <select id="className" class="form-control" required style="padding: 15px; border-radius: 8px; background: var(--input-bg); border: 1px solid rgba(214,255,63,0.2); color: var(--text-inverse); transition: all 0.3s ease; cursor: pointer;" onfocus="this.style.boxShadow='0 0 15px rgba(214,255,63,0.2)'; this.style.borderColor='var(--color-primary)';" onblur="this.style.boxShadow='none'; this.style.borderColor='rgba(214,255,63,0.2)';">
+                <option value="" disabled selected>Select Class Name</option>
+                <option value="Advanced HIIT" style="color: #121212;">Advanced HIIT</option>
+                <option value="Powerlifting" style="color: #121212;">Powerlifting</option>
+                <option value="Yoga Flow" style="color: #121212;">Yoga Flow</option>
+                <option value="Spin Class" style="color: #121212;">Spin Class</option>
+              </select>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+              <div class="form-group" style="position: relative;">
+                <label class="form-label" style="color: var(--color-primary); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fas fa-clock" style="margin-right: 8px;"></i>Time</label>
+                <input type="time" id="classTime" class="form-control" required style="padding: 15px; border-radius: 8px; background: var(--input-bg); border: 1px solid rgba(214,255,63,0.2); color: var(--text-inverse); color-scheme: dark; transition: all 0.3s ease;" onfocus="this.style.boxShadow='0 0 15px rgba(214,255,63,0.2)'; this.style.borderColor='var(--color-primary)';" onblur="this.style.boxShadow='none'; this.style.borderColor='rgba(214,255,63,0.2)';">
+              </div>
+              <div class="form-group" style="position: relative;">
+                <label class="form-label" style="color: var(--color-primary); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fas fa-users" style="margin-right: 8px;"></i>Capacity</label>
+                <input type="number" id="classCapacity" class="form-control" required placeholder="20" value="20" min="1" style="padding: 15px; border-radius: 8px; background: var(--input-bg); border: 1px solid rgba(214,255,63,0.2); color: var(--text-inverse); transition: all 0.3s ease;" onfocus="this.style.boxShadow='0 0 15px rgba(214,255,63,0.2)'; this.style.borderColor='var(--color-primary)';" onblur="this.style.boxShadow='none'; this.style.borderColor='rgba(214,255,63,0.2)';">
+              </div>
+            </div>
+            <div class="form-group" style="position: relative; margin-bottom: 2rem;">
+              <label class="form-label" style="color: var(--color-primary); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fas fa-user-tie" style="margin-right: 8px;"></i>Instructor</label>
+              <select id="classInstructor" class="form-control" required style="padding: 15px; border-radius: 8px; background: var(--input-bg); border: 1px solid rgba(214,255,63,0.2); color: var(--text-inverse); transition: all 0.3s ease; cursor: pointer;" onfocus="this.style.boxShadow='0 0 15px rgba(214,255,63,0.2)'; this.style.borderColor='var(--color-primary)';" onblur="this.style.boxShadow='none'; this.style.borderColor='rgba(214,255,63,0.2)';">
+                <option value="" disabled selected>Select Instructor</option>
+                <option value="Alex M." style="color: #121212;">Alex M.</option>
+                <option value="Jamie T." style="color: #121212;">Jamie T.</option>
+                <option value="Chris L." style="color: #121212;">Chris L.</option>
+                <option value="Sarah J." style="color: #121212;">Sarah J.</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary pulse-border hover-scale" style="width: 100%; padding: 15px; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Add to Schedule <i class="fas fa-plus-circle" style="margin-left: 8px;"></i></button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

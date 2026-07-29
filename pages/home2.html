@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexora | Powerlifting Masterclass Campaign</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="../js/theme.js"></script>
+  <script src="../js/rtl.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/form-validation.js"></script>
+  <script src="../js/script.js"></script>
+
+  <style>
+    /* ── Custom Theme Overrides & Aesthetics ── */
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      overflow-x: hidden;
+    }
+
+    .campaign-badge {
+      background: linear-gradient(90deg, var(--color-secondary), #ff7e62);
+      color: #fff;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 15px rgba(255, 90, 54, 0.3);
+    }
+
+    /* ── Countdown Urgency Timer ── */
+    .countdown-section {
+      background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 25px 0;
+      position: relative;
+    }
+    .countdown-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    }
+    .countdown-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .countdown-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+    .countdown-title span {
+      color: var(--color-secondary);
+    }
+    .countdown-timer {
+      display: flex;
+      gap: 1rem;
+    }
+    .timer-block {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      min-width: 70px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .timer-num {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--color-primary);
+      font-weight: 800;
+      line-height: 1;
+    }
+    .timer-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      letter-spacing: 1px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Interactive PR Calculator ── */
+    .calculator-card {
+      background: linear-gradient(145deg, #1a1a1a 0%, #151515 100%);
+      border: 1px solid var(--color-border);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .calculator-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(214, 255, 63, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .input-range-group {
+      background: rgba(0,0,0,0.2);
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .range-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .range-label {
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .range-val {
+      font-family: var(--font-heading);
+      color: var(--color-primary);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+    .custom-range {
+      width: 100%;
+      height: 6px;
+      background: var(--color-border);
+      border-radius: 5px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .custom-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(214,255,63,0.5);
+      transition: transform 0.1s;
+    }
+    .custom-range::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    .calc-results {
+      background: rgba(214, 255, 63, 0.03);
+      border: 1px solid rgba(214, 255, 63, 0.1);
+      border-radius: 18px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      height: 100%;
+      justify-content: space-between;
+    }
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 1rem;
+    }
+    .result-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .result-lbl {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+    .result-val {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .result-val.highlight {
+      color: var(--color-primary);
+      font-size: 2.2rem;
+    }
+
+    /* ── Interactive Stepper Curriculum ── */
+    .curriculum-interactive {
+      margin-top: 3.5rem;
+    }
+    .curriculum-stepper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 3rem;
+      background: rgba(255,255,255,0.01);
+      padding: 1.5rem 2rem;
+      border-radius: 50px;
+      border: 1px solid var(--color-border);
+    }
+    .step-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--color-border);
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+    .step-label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .step-weeks {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .step-name {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+    
+    .step-btn.active .step-num {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #121212;
+      box-shadow: 0 0 15px rgba(214, 255, 63, 0.4);
+    }
+    .step-btn.active .step-name {
+      color: var(--color-primary);
+    }
+    
+    .step-line-connector {
+      flex: 1;
+      height: 2px;
+      background: var(--color-border);
+      margin: 0 1rem;
+    }
+
+    .curriculum-details-box {
+      background: linear-gradient(145deg, #1c1c1c 0%, #141414 100%);
+      border: 1px solid var(--color-border);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+    
+    .phase-detail-pane {
+      display: none;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    .phase-detail-pane.active {
+      display: grid;
+    }
+    .phase-meta-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+      color: #fff;
+    }
+    .phase-indicator {
+      display: inline-block;
+      color: var(--color-secondary);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+    .phase-desc {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+    
+    .phase-benchmarks-box {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .benchmark-title {
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: var(--color-primary);
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 0.5rem;
+    }
+    .benchmark-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .benchmark-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+    .benchmark-list li i {
+      color: var(--color-primary);
+      font-size: 0.9rem;
+    }
+    
+    .load-meter-group {
+      margin-top: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .load-meter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .load-meter-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+    }
+    .load-meter-label span {
+      font-weight: 700;
+      color: #fff;
+    }
+    .load-bar-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .load-bar-fill {
+      height: 100%;
+      background: var(--color-primary);
+      border-radius: 10px;
+      transition: width 0.8s ease-in-out;
+    }
+    .load-bar-fill.accent {
+      background: var(--color-secondary);
+    }
+
+    /* ── Technique Correction Section ── */
+    .technique-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .tech-tab {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      padding: 10px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .tech-tab.active, .tech-tab:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: rgba(214,255,63,0.02);
+    }
+    .tech-pane {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    .tech-pane.active {
+      display: block;
+    }
+    .tech-compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .tech-card {
+      border-radius: 16px;
+      padding: 2rem;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid var(--color-border);
+      position: relative;
+    }
+    .tech-card.error-card {
+      border-left: 4px solid var(--color-secondary);
+    }
+    .tech-card.success-card {
+      border-left: 4px solid var(--color-primary);
+    }
+    .tech-card-title {
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tech-card-title i {
+      font-size: 1.4rem;
+    }
+    .error-card .tech-card-title { color: var(--color-secondary); }
+    .success-card .tech-card-title { color: var(--color-primary); }
+    
+    .tech-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .tech-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.5;
+    }
+    .tech-list li i {
+      margin-top: 4px;
+      font-size: 1rem;
+    }
+    .error-card .tech-list i { color: var(--color-secondary); }
+    .success-card .tech-list i { color: var(--color-primary); }
+
+    /* ── FAQ Accordion ── */
+    .faq-container {
+      max-width: 800px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .faq-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .faq-item.active {
+      border-color: var(--color-primary);
+    }
+    .faq-header {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      user-select: none;
+    }
+    .faq-icon {
+      transition: transform 0.3s;
+      color: var(--color-primary);
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    .faq-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s;
+      padding: 0 1.5rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-panel {
+      max-height: 1000px;
+      padding-bottom: 1.5rem;
+      transition: max-height 0.3s cubic-bezier(1, 0, 1, 0), padding 0.3s;
+    }
+
+    /* ── Responsive adjustments ── */
+    @media (max-width: 768px) {
+      .calc-grid, .tech-compare-grid {
+        grid-template-columns: 1fr;
+      }
+      .countdown-container {
+        justify-content: center;
+        text-align: center;
+      }
+      .curriculum-stepper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        border-radius: 20px;
+        padding: 1.5rem;
+      }
+      .step-line-connector {
+        display: none;
+      }
+      .step-btn {
+        justify-content: flex-start;
+        width: 100%;
+      }
+      .phase-detail-pane {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Campaign Hero -->
+  <section class="hero-section hero-dark" style="min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background-image: linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.85)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed; padding-top: 120px; padding-bottom: 60px;">
+    <div class="container reveal">
+      <div class="campaign-badge"><i class="fas fa-fire-alt" style="margin-right: 6px;"></i> Exclusive Campaign</div>
+      <h1 style="font-size: 5rem; text-transform: uppercase; margin-bottom: 1rem; line-height: 1; font-family: var(--font-heading);">Lift <span class="text-primary">Heavier</span></h1>
+      <p style="font-size: 1.35rem; max-width: 650px; margin: 0 auto 2.5rem; color: var(--color-text-muted); line-height: 1.6;">Join our exclusive 8-week Powerlifting Masterclass. Master the Squat, Bench, and Deadlift under elite coach guidance and shatter your PRs.</p>
+      <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+        <a href="#register" class="btn btn-primary pulse-border hover-lift" style="font-size: 1.1rem; padding: 15px 40px;">Secure Your Spot</a>
+        <a href="#calculator" class="btn btn-secondary hover-lift" style="font-size: 1.1rem; padding: 15px 40px;">Calculate Your PRs</a>
+      </div>
+      <div style="font-size: 1rem; color: var(--color-secondary); font-weight: 800; letter-spacing: 1px;"><i class="fas fa-exclamation-triangle" style="margin-right: 6px;"></i> ONLY 12 TOTAL SPOTS AVAILABLE</div>
+    </div>
+  </section>
+
+  <!-- 2. Urgency Countdown Bar -->
+  <section class="countdown-section">
+    <div class="container">
+      <div class="countdown-container">
+        <div class="countdown-title">
+          Registration Closes in: <span>Sunday at Midnight</span>
+        </div>
+        <div class="countdown-timer">
+          <div class="timer-block">
+            <span class="timer-num" id="days">02</span>
+            <span class="timer-label">Days</span>
+          </div>
+          <div class="timer-block">
+            <span class="timer-num" id="hours">14</span>
+            <span class="timer-label">Hours</span>
+          </div>
+          <div class="timer-block">
+            <span class="timer-num" id="minutes">45</span>
+            <span class="timer-label">Mins</span>
+          </div>
+          <div class="timer-block">
+            <span class="timer-num" id="seconds">30</span>
+            <span class="timer-label">Secs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. The Big 3 Section -->
+  <section style="background-color: var(--color-bg-alt); padding: 100px 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+        <span style="display: inline-block; background: var(--color-primary-transparent); color: var(--color-primary); border: 1px solid rgba(214,255,63,0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Core Discipline</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-heading);">Master The Big 3</h2>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">Technical perfection leads to maximum strength and injury-free progression.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: center;">
+        <div class="card reveal delay-100 hover-lift" style="padding: 3.5rem 2rem;">
+          <h3 style="font-size: 3rem; color: var(--color-primary); margin-bottom: 10px; font-family: var(--font-heading);">01.</h3>
+          <h4 style="font-size: 1.5rem; margin-bottom: 15px; text-transform: uppercase; font-family: var(--font-heading);">Squat</h4>
+          <p style="color: var(--color-text-muted); line-height: 1.6;">Build explosive leg power. Optimize your walkout, brace technique, and bar path for maximum load.</p>
+        </div>
+        <div class="card reveal delay-200 hover-lift" style="padding: 3.5rem 2rem; border-color: var(--color-primary);">
+          <h3 style="font-size: 3rem; color: var(--color-secondary); margin-bottom: 10px; font-family: var(--font-heading);">02.</h3>
+          <h4 style="font-size: 1.5rem; margin-bottom: 15px; text-transform: uppercase; font-family: var(--font-heading);">Bench</h4>
+          <p style="color: var(--color-text-muted); line-height: 1.6;">Upper body dominance. Master leg drive, arch setup, and explosive pressing mechanics.</p>
+        </div>
+        <div class="card reveal delay-300 hover-lift" style="padding: 3.5rem 2rem;">
+          <h3 style="font-size: 3rem; color: var(--color-primary); margin-bottom: 10px; font-family: var(--font-heading);">03.</h3>
+          <h4 style="font-size: 1.5rem; margin-bottom: 15px; text-transform: uppercase; font-family: var(--font-heading);">Deadlift</h4>
+          <p style="color: var(--color-text-muted); line-height: 1.6;">Raw full-body strength. Learn proper hinging, slack pulling, and lockout mastery for conventional or sumo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Interactive Target PR Calculator -->
+  <section id="calculator" style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+        <span style="display: inline-block; background: rgba(255, 90, 54, 0.1); color: var(--color-secondary); border: 1px solid rgba(255, 90, 54, 0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Strength Forecaster</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-heading);">Calculate Your <span class="text-primary">PR Goals</span></h2>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">Select your experience level and input your current lifts to estimate your strength growth over the 8-week program.</p>
+      </div>
+
+      <div class="calculator-card reveal">
+        <div class="calc-grid">
+          <!-- Inputs Column -->
+          <div class="calc-inputs">
+            
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label" style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Experience Level</label>
+              <select id="calc-exp-level" class="form-control" style="background: rgba(0,0,0,0.3); border-color: var(--color-border); cursor: pointer;" onchange="calculatePRs()">
+                <option value="beginner" selected>Beginner (Under 1 year lifting)</option>
+                <option value="intermediate">Intermediate (1-3 years lifting)</option>
+                <option value="advanced">Advanced (3+ years lifting)</option>
+              </select>
+            </div>
+
+            <!-- Squat Range -->
+            <div class="input-range-group">
+              <div class="range-header">
+                <span class="range-label">Current Squat</span>
+                <span class="range-val" id="squat-val">185 lbs</span>
+              </div>
+              <input type="range" id="squat-range" min="45" max="600" value="185" class="custom-range" oninput="calculatePRs()">
+            </div>
+
+            <!-- Bench Range -->
+            <div class="input-range-group">
+              <div class="range-header">
+                <span class="range-label">Current Bench Press</span>
+                <span class="range-val" id="bench-val">135 lbs</span>
+              </div>
+              <input type="range" id="bench-range" min="45" max="450" value="135" class="custom-range" oninput="calculatePRs()">
+            </div>
+
+            <!-- Deadlift Range -->
+            <div class="input-range-group">
+              <div class="range-header">
+                <span class="range-label">Current Deadlift</span>
+                <span class="range-val" id="deadlift-val">225 lbs</span>
+              </div>
+              <input type="range" id="deadlift-range" min="45" max="700" value="225" class="custom-range" oninput="calculatePRs()">
+            </div>
+
+          </div>
+
+          <!-- Results Column -->
+          <div class="calc-results">
+            <div>
+              <h3 style="font-family: var(--font-heading); text-transform: uppercase; font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--color-primary);">Target Total</h3>
+              
+              <div class="result-row">
+                <span class="result-lbl">Current Total:</span>
+                <span class="result-val" id="current-total">545 lbs</span>
+              </div>
+              
+              <div class="result-row">
+                <span class="result-lbl">Projected PR Squat:</span>
+                <span class="result-val text-primary" id="target-squat">213 lbs</span>
+              </div>
+              
+              <div class="result-row">
+                <span class="result-lbl">Projected PR Bench:</span>
+                <span class="result-val text-primary" id="target-bench">149 lbs</span>
+              </div>
+              
+              <div class="result-row">
+                <span class="result-lbl">Projected PR Deadlift:</span>
+                <span class="result-val text-primary" id="target-deadlift">259 lbs</span>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; text-align: center;">
+              <span class="result-lbl" style="display: block; margin-bottom: 5px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Estimated PR Total Increase</span>
+              <span class="result-val highlight" id="projected-total-increase">+76 lbs</span>
+              <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 10px; line-height: 1.4;">*Calculations are based on 100% program compliance, coaching instruction, and progressive peaking metrics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Interactive Stepper 8-Week Curriculum Section -->
+  <section style="background-color: var(--color-bg-alt); padding: 100px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+        <span style="display: inline-block; background: var(--color-primary-transparent); color: var(--color-primary); border: 1px solid rgba(214,255,63,0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Program Roadmap</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-heading);">The 8-Week <span class="text-primary">Curriculum</span></h2>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">A fully structured progressive overload phase, technique mastery, and competition peaking roadmap.</p>
+      </div>
+
+      <div class="curriculum-interactive reveal">
+        <!-- Stepper Navigation -->
+        <div class="curriculum-stepper">
+          <button class="step-btn active" onclick="switchCurriculumPhase(1)">
+            <span class="step-num">01</span>
+            <div class="step-label">
+              <span class="step-weeks">Weeks 1-2</span>
+              <span class="step-name">Setup</span>
+            </div>
+          </button>
+          
+          <div class="step-line-connector"></div>
+
+          <button class="step-btn" onclick="switchCurriculumPhase(2)">
+            <span class="step-num">02</span>
+            <div class="step-label">
+              <span class="step-weeks">Weeks 3-4</span>
+              <span class="step-name">Volume</span>
+            </div>
+          </button>
+
+          <div class="step-line-connector"></div>
+
+          <button class="step-btn" onclick="switchCurriculumPhase(3)">
+            <span class="step-num">03</span>
+            <div class="step-label">
+              <span class="step-weeks">Weeks 5-6</span>
+              <span class="step-name">Overload</span>
+            </div>
+          </button>
+
+          <div class="step-line-connector"></div>
+
+          <button class="step-btn" onclick="switchCurriculumPhase(4)">
+            <span class="step-num">04</span>
+            <div class="step-label">
+              <span class="step-weeks">Weeks 7-8</span>
+              <span class="step-name">Peaking</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Details Box -->
+        <div class="curriculum-details-box">
+          <!-- Phase 1 -->
+          <div id="curr-phase-1" class="phase-detail-pane active">
+            <div>
+              <span class="phase-indicator">Phase 01 • Prep Phase</span>
+              <h3 class="phase-meta-title">Biomechanics & Setup</h3>
+              <p class="phase-desc">Establish baseline 1RM testing. Refine set-up mechanics, bracing efficiency, breathing techniques, and optimize physical bar placement tailored to your specific biomechanical structure.</p>
+              
+              <div class="load-meter-group">
+                <div class="load-meter-item">
+                  <div class="load-meter-label">Central Nervous System Load <span>Light (40%)</span></div>
+                  <div class="load-bar-track"><div class="load-bar-fill" style="width: 40%;"></div></div>
+                </div>
+                <div class="load-meter-item">
+                  <div class="load-meter-label">Training Volume <span>Moderate (60%)</span></div>
+                  <div class="load-bar-track"><div class="load-bar-fill accent" style="width: 60%;"></div></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="phase-benchmarks-box">
+              <h4 class="benchmark-title">Phase Benchmarks</h4>
+              <ul class="benchmark-list">
+                <li><i class="fas fa-check-circle"></i> 1RM Baseline Assessments completed</li>
+                <li><i class="fas fa-check-circle"></i> Individual Barbell path alignment mapped</li>
+                <li><i class="fas fa-check-circle"></i> Lat activation & shelf setup drills</li>
+                <li><i class="fas fa-check-circle"></i> Intra-abdominal pressure testing</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div id="curr-phase-2" class="phase-detail-pane">
+            <div>
+              <span class="phase-indicator">Phase 02 • Hypertrophy Phase</span>
+              <h3 class="phase-meta-title">Volume Accumulation</h3>
+              <p class="phase-desc">Build work capacity and muscle hypertrophy. Program focuses on higher set volume at 65-75% intensity, combined with specialized accessories to strengthen weak links.</p>
+              
+              <div class="load-meter-group">
+                <div class="load-meter-item">
+                  <div class="load-meter-label">Central Nervous System Load <span>Moderate (65%)</span></div>
+                  <div class="load-bar-track"><div class="load-bar-fill" style="width: 65%;"></div></div>
+                </div>
+                <div class="load-meter-item">
+                  <div class="load-meter-label">Training Volume <span>High (90%)</span></div>
+                  <div class="load-bar-track"><div class="load-bar-fill accent" style="width: 90%;"></div></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="phase-benchmarks-box">
+              <h4 class="benchmark-title">Phase Benchmarks</h4>
+              <ul class="benchmark-list">
+                <li><i class="fas fa-check-circle"></i> High-volume sets (8-10 reps) at 70% 1RM</li>
+                <li><i class="fas fa-check-circle"></i> Accessory targeting for lagging muscle groups</li>
+                <li><i class="fas fa-check-circle"></i> Dynamic effort speed barbell sets</li>
+                <li><i class="fas fa-check-circle"></i> Work capacity threshold certification</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div id="curr-phase-3" class="phase-detail-pane">
+            <div>
+              <span class="phase-indicator">Phase 03 • Overload Phase</span>
+              <h3 class="phase-meta-title">Neuromuscular Overload</h3>
+              <p class="phase-desc">Transition to heavy strength loads. Train the central nervous system to lift near-maximum weights with precise form control, velocity analysis, and bar-path efficiency.</p>
+              
+              <div class="load-meter-group">
+                <div class="load-meter-item">
+                  <div class="load-meter-label">Central Nervous System Load <span>Maximum (95%)</span></div>
+                  <div class="load-bar-track"><div class="load-bar-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="load-meter-item">
+                  <div class="load-meter-label">Training Volume <span>Low-Medium (50%)</span></div>
+                  <div class="load-bar-track"><div class="load-bar-fill accent" style="width: 50%;"></div></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="phase-benchmarks-box">
+              <h4 class="benchmark-title">Phase Benchmarks</h4>
+              <ul class="benchmark-list">
+                <li><i class="fas fa-check-circle"></i> Heavy singles & doubles at 85%+ 1RM</li>
+                <li><i class="fas fa-check-circle"></i> Board pressing & pin squat overloads</li>
+                <li><i class="fas fa-check-circle"></i> Central Nervous System excitation routines</li>
+                <li><i class="fas fa-check-circle"></i> Bar-path velocity tracker logs</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 4 -->
+          <div id="curr-phase-4" class="phase-detail-pane">
+            <div>
+              <span class="phase-indicator">Phase 04 • Competition Phase</span>
+              <h3 class="phase-meta-title">Peaking & Mock Meet</h3>
+              <p class="phase-desc">Fatigue dissipation and energy accumulation. Taper down volume while maintaining high intensity, leading to the Flexora Mock Meet Day to smash your PRs under referee rules.</p>
+              
+              <div class="load-meter-group">
+                <div class="load-meter-item">
+                  <div class="load-meter-label">Central Nervous System Load <span>Maximum Peak (100%)</span></div>
+                  <div class="load-bar-track"><div class="load-bar-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="load-meter-item">
+                  <div class="load-meter-label">Training Volume <span>Low (20%)</span></div>
+                  <div class="load-bar-track"><div class="load-bar-fill accent" style="width: 20%;"></div></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="phase-benchmarks-box">
+              <h4 class="benchmark-title">Phase Benchmarks</h4>
+              <ul class="benchmark-list">
+                <li><i class="fas fa-check-circle"></i> Supercompensated volume taper protocol</li>
+                <li><i class="fas fa-check-circle"></i> Ref Referee rules & commands seminar</li>
+                <li><i class="fas fa-check-circle"></i> Attempts selection strategy planning</li>
+                <li><i class="fas fa-check-circle"></i> Flexora Mock Meet Day PR attempts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Technique Correction Guide -->
+  <section style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+        <span style="display: inline-block; background: rgba(255, 90, 54, 0.1); color: var(--color-secondary); border: 1px solid rgba(255, 90, 54, 0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Form Correction</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-heading);">Technique <span class="text-primary">Masterclass</span></h2>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">See how coach Mike corrects common mistakes to keep you lifting safe and heavy.</p>
+      </div>
+
+      <div class="technique-tabs reveal">
+        <button class="tech-tab active" onclick="switchTechTab('squat')">Squat Form</button>
+        <button class="tech-tab" onclick="switchTechTab('bench')">Bench Press Form</button>
+        <button class="tech-tab" onclick="switchTechTab('deadlift')">Deadlift Form</button>
+      </div>
+
+      <!-- Squat Form Tab -->
+      <div id="tech-squat" class="tech-pane active reveal">
+        <div class="tech-compare-grid">
+          <div class="tech-card error-card">
+            <h4 class="tech-card-title"><i class="fas fa-times-circle"></i> Common Squat Errors</h4>
+            <ul class="tech-list">
+              <li>
+                <i class="fas fa-ban"></i>
+                <div>
+                  <strong>Valgus Knee Collapse:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Knees caving inwards during ascent, placing massive shear force on the ACL and reducing glute activation.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-ban"></i>
+                <div>
+                  <strong>Heel Rise & Toe Weighting:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Shifting weight to front of foot, creating forward pitch, losing bar alignment, and overworking the patellar tendon.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tech-card success-card">
+            <h4 class="tech-card-title"><i class="fas fa-check-circle"></i> Flexora Coached Alignment</h4>
+            <ul class="tech-list">
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>Active Knee Screwing:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Forcing knees outward by creating rotational pressure on the floor, locking hip sockets for powerful thrust.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>Three-Point Balanced Footing:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Distributing barbell weight equally over the heel, big toe, and pinky toe to maintain linear vertical bar path.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bench Form Tab -->
+      <div id="tech-bench" class="tech-pane reveal">
+        <div class="tech-compare-grid">
+          <div class="tech-card error-card">
+            <h4 class="tech-card-title"><i class="fas fa-times-circle"></i> Common Bench Errors</h4>
+            <ul class="tech-list">
+              <li>
+                <i class="fas fa-ban"></i>
+                <div>
+                  <strong>Flat Back & Zero Leg Drive:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Lying completely flat on the bench, which removes mechanical shoulder support and lowers pressing force.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-ban"></i>
+                <div>
+                  <strong>Elbow Flaring:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Flaring elbows out to 90 degrees at the bottom, shifting weight directly onto the delicate rotator cuffs.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tech-card success-card">
+            <h4 class="tech-card-title"><i class="fas fa-check-circle"></i> Flexora Coached Alignment</h4>
+            <ul class="tech-list">
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>Retracted Scapula & Leg Anchoring:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Pinching shoulder blades tight and driving feet back to transfer leg force through your core directly into the bar.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>Tucked Elbow Path (45-60°):</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Tucking elbows slightly on descent to recruit the lat muscles and chest fibers while keeping shoulders secure.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deadlift Form Tab -->
+      <div id="tech-deadlift" class="tech-pane reveal">
+        <div class="tech-compare-grid">
+          <div class="tech-card error-card">
+            <h4 class="tech-card-title"><i class="fas fa-times-circle"></i> Common Deadlift Errors</h4>
+            <ul class="tech-list">
+              <li>
+                <i class="fas fa-ban"></i>
+                <div>
+                  <strong>Lumbar Rounding:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Pulling with a curved lower spine, which puts severe pressure on spinal discs and limits lifting efficiency.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-ban"></i>
+                <div>
+                  <strong>Squatting the Deadlift:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Starting with hips set too low, which forces the shins forward and blocks a straight vertical barbell path.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tech-card success-card">
+            <h4 class="tech-card-title"><i class="fas fa-check-circle"></i> Flexora Coached Alignment</h4>
+            <ul class="tech-list">
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>Neutral Spine & Lat Tension:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Locking the back straight, packing the neck, and loading lats dynamically before the bar leaves the floor.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>High Hip Hinge Setup:</strong>
+                  <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Setting hips at optimal height to load the hamstrings and glutes while keeping the bar pressed flush against the shins.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. Coach Profile -->
+  <section style="background-color: var(--color-bg-alt); padding: 100px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem;">
+        <div class="reveal image-overlay-zoom hover-lift" style="flex: 1; min-width: 320px; height: 450px; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg);">
+          <img src="https://plus.unsplash.com/premium_photo-1726481790100-408b0b3fd120?w=800&auto=format&fit=crop&q=60" alt="Coach Mike" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div class="reveal delay-200" style="flex: 1; min-width: 320px;">
+          <span style="display: inline-block; background: var(--color-primary-transparent); color: var(--color-primary); border: 1px solid rgba(214,255,63,0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Head Coach</span>
+          <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">Meet Coach <span class="text-primary">Mike</span></h2>
+          <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 2rem;">With over 15 years of competitive powerlifting experience and multiple state records, Mike has coached hundreds of athletes from absolute beginners to national competitors. His analytical approach ensures you lift safely while adding serious pounds to your total.</p>
+          <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
+            <div>
+              <div class="text-primary" style="font-size: 2.5rem; font-weight: 800; font-family: var(--font-heading);">15+</div>
+              <div class="text-muted" style="text-transform: uppercase; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; margin-top: 5px;">Years Coaching</div>
+            </div>
+            <div>
+              <div class="text-primary" style="font-size: 2.5rem; font-weight: 800; font-family: var(--font-heading);">1,850</div>
+              <div class="text-muted" style="text-transform: uppercase; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; margin-top: 5px;">Lifting Total (lbs)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Schedule & Inclusions -->
+  <section style="padding: 100px 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
+        
+        <div class="reveal hover-lift card" style="padding: 3rem; background: var(--color-bg-alt);">
+          <h2 style="margin-bottom: 1.5rem; color: var(--color-secondary); font-family: var(--font-heading); text-transform: uppercase;"><i class="far fa-calendar-alt" style="margin-right: 10px;"></i> Camp Schedule</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: 2rem; line-height: 1.6;">The program runs for exactly 8 weeks, with two mandatory coached sessions per week and one optional accessory day.</p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: 18px 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+              <strong>Tuesdays</strong> <span style="color: var(--color-text-muted);">7:00 PM - 8:30 PM (Squat Focus)</span>
+            </li>
+            <li style="padding: 18px 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+              <strong>Thursdays</strong> <span style="color: var(--color-text-muted);">7:00 PM - 8:30 PM (Bench Focus)</span>
+            </li>
+            <li style="padding: 18px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+              <strong>Saturdays</strong> <span style="color: var(--color-text-muted);">10:00 AM - 12:00 PM (Deadlift Focus)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal delay-200 hover-lift card" style="padding: 3rem; border-color: var(--color-primary); background: var(--color-bg-alt);">
+          <h2 style="margin-bottom: 1.5rem; color: var(--color-primary); font-family: var(--font-heading); text-transform: uppercase;"><i class="fas fa-box-open" style="margin-right: 10px;"></i> What's Included</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: 2rem; line-height: 1.6;">Everything required to guarantee strength gains and optimize your training variables.</p>
+          <ul style="list-style: none; padding: 0; color: var(--color-text); line-height: 2.2;">
+            <li><i class="fas fa-check text-primary" style="width: 25px;"></i> 24 Coached Small-Group Sessions</li>
+            <li><i class="fas fa-check text-primary" style="width: 25px;"></i> Custom Peaking Program (Excel/PDF)</li>
+            <li><i class="fas fa-check text-primary" style="width: 25px;"></i> Weekly Video Form Analysis</li>
+            <li><i class="fas fa-check text-primary" style="width: 25px;"></i> Meet Day Prep & Handling Guide</li>
+            <li><i class="fas fa-check text-primary" style="width: 25px;"></i> Exclusive Flexora Lifting Shirt</li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ Accordion -->
+  <section style="background-color: var(--color-bg-alt); padding: 100px 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header reveal text-center" style="text-align: center;">
+        <span style="display: inline-block; background: var(--color-primary-transparent); color: var(--color-primary); border: 1px solid rgba(214,255,63,0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Common Inquiries</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-heading);">Camp <span class="text-primary">FAQs</span></h2>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">Answers to questions about requirements, injury prevention, and program logistics.</p>
+      </div>
+
+      <div class="faq-container reveal">
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            Do I need to be already strong to join?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-panel">
+            <p>Absolutely not. This campaign is specifically built to teach correct setup, form, and bracing mechanics regardless of starting strength. Whether you squat 95 lbs or 495 lbs, our individualized coaching structure scales to meet you exactly where you are.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            What if I have to miss a scheduled session?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-panel">
+            <p>We provide full make-up program coordinates for any missed sessions. You'll receive video briefs of the training protocols so you can perform them during our general open gym hours at your convenience.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            Is the entry fee fully refundable?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-panel">
+            <p>Yes, we offer a 100% money-back guarantee. If you attend the first 3 sessions and feel the coaching or program isn't the right fit for your lifting goals, simply let Mike know and we will refund you in full, no questions asked.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Registration Form -->
+  <section id="register" style="padding: 120px 0;">
+    <div class="container reveal" style="max-width: 650px;">
+      <div class="text-center" style="margin-bottom: 3rem; text-align: center;">
+        <h2 style="font-size: 3rem; font-family: var(--font-heading); text-transform: uppercase;">Claim Your Spot</h2>
+        <p style="color: var(--color-text-muted); font-size: 1.1rem; margin-top: 10px;">Registration closes Sunday at midnight. Don't miss out on this intake.</p>
+      </div>
+      <form class="card" style="padding: 3rem; position: relative; overflow: hidden; background: var(--color-bg-alt);">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));"></div>
+        
+        <div class="form-group">
+          <label class="form-label" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Full Name</label>
+          <input type="text" class="form-control" placeholder="e.g. John Doe" required style="background: var(--color-bg);">
+        </div>
+        <div class="form-group">
+          <label class="form-label" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Email Address</label>
+          <input type="email" class="form-control" placeholder="john@example.com" required style="background: var(--color-bg);">
+        </div>
+        <div class="form-group" style="margin-bottom: 2.5rem;">
+          <label class="form-label" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Current Lifting Level</label>
+          <select class="form-control" style="cursor: pointer; background: var(--color-bg);" required>
+            <option value="" disabled selected>Select your level...</option>
+            <option value="beginner">Beginner (Under 1 year)</option>
+            <option value="intermediate">Intermediate (1-3 years)</option>
+            <option value="advanced">Advanced (3+ years)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary hover-scale" style="width: 100%; font-size: 1.15rem; padding: 15px; color: #121212;">Complete Registration - $199</button>
+        <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--color-text-muted);"><i class="fas fa-lock" style="margin-right: 6px; color: var(--color-primary);"></i> Secure 256-bit payment processing.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    // ── Timer Logic (Urgency Countdown) ──
+    function startTimer() {
+      // Set the countdown date to next Sunday at 23:59:59
+      const now = new Date();
+      const currentDay = now.getDay(); // 0 is Sunday, 1 is Monday, etc.
+      const daysToSunday = (7 - currentDay) % 7;
+      
+      const targetDate = new Date();
+      targetDate.setDate(now.getDate() + daysToSunday);
+      targetDate.setHours(23, 59, 59, 999);
+
+      // If it is Sunday past midnight, roll to next Sunday
+      if (daysToSunday === 0 && now.getHours() === 23 && now.getMinutes() === 59) {
+        targetDate.setDate(now.getDate() + 7);
+      }
+
+      function updateClock() {
+        const currentTime = new Date().getTime();
+        const diff = targetDate.getTime() - currentTime;
+
+        if (diff <= 0) {
+          clearInterval(timerInterval);
+          return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(d).padStart(2, '0');
+        document.getElementById('hours').innerText = String(h).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+      }
+
+      updateClock();
+      const timerInterval = setInterval(updateClock, 1000);
+    }
+    
+    // ── PR Calculator Logic ──
+    function calculatePRs() {
+      const level = document.getElementById('calc-exp-level').value;
+      const squat = parseInt(document.getElementById('squat-range').value);
+      const bench = parseInt(document.getElementById('bench-range').value);
+      const deadlift = parseInt(document.getElementById('deadlift-range').value);
+
+      // Set input labels
+      document.getElementById('squat-val').innerText = squat + " lbs";
+      document.getElementById('bench-val').innerText = bench + " lbs";
+      document.getElementById('deadlift-val').innerText = deadlift + " lbs";
+
+      // Multipliers based on experience
+      let multiplierSquatDead = 0.15; // Beginner
+      let multiplierBench = 0.10;
+
+      if (level === 'intermediate') {
+        multiplierSquatDead = 0.10;
+        multiplierBench = 0.07;
+      } else if (level === 'advanced') {
+        multiplierSquatDead = 0.06;
+        multiplierBench = 0.04;
+      }
+
+      const targetSquat = Math.round(squat * (1 + multiplierSquatDead));
+      const targetBench = Math.round(bench * (1 + multiplierBench));
+      const targetDeadlift = Math.round(deadlift * (1 + multiplierSquatDead));
+
+      const currentTotal = squat + bench + deadlift;
+      const targetTotal = targetSquat + targetBench + targetDeadlift;
+      const increase = targetTotal - currentTotal;
+
+      document.getElementById('current-total').innerText = currentTotal + " lbs";
+      document.getElementById('target-squat').innerText = targetSquat + " lbs";
+      document.getElementById('target-bench').innerText = targetBench + " lbs";
+      document.getElementById('target-deadlift').innerText = targetDeadlift + " lbs";
+      document.getElementById('projected-total-increase').innerText = "+" + increase + " lbs";
+    }
+
+    // ── Technique Tab Switcher ──
+    function switchTechTab(lift) {
+      // Remove active from all tabs
+      document.querySelectorAll('.tech-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      // Remove active from all panes
+      document.querySelectorAll('.tech-pane').forEach(pane => {
+        pane.classList.remove('active');
+      });
+
+      // Add active to current
+      event.currentTarget.classList.add('active');
+      document.getElementById('tech-' + lift).classList.add('active');
+    }
+
+    // ── FAQ Accordion Toggle ──
+    function toggleFAQ(element) {
+      const item = element.parentElement;
+      const isActive = item.classList.contains('active');
+      
+      // Close all FAQs
+      document.querySelectorAll('.faq-item').forEach(faq => {
+        faq.classList.remove('active');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // ── Curriculum Stepper Switcher ──
+    function switchCurriculumPhase(phaseNum) {
+      // Remove active class from all stepper buttons
+      document.querySelectorAll('.curriculum-stepper .step-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      // Remove active class from all phase detail panes
+      document.querySelectorAll('.curriculum-details-box .phase-detail-pane').forEach(pane => {
+        pane.classList.remove('active');
+      });
+
+      // Find all buttons and add active to the clicked index (phaseNum is 1-indexed)
+      const buttons = document.querySelectorAll('.curriculum-stepper .step-btn');
+      if (buttons[phaseNum - 1]) {
+        buttons[phaseNum - 1].classList.add('active');
+      }
+
+      // Add active to the corresponding detail pane
+      const targetPane = document.getElementById('curr-phase-' + phaseNum);
+      if (targetPane) {
+        targetPane.classList.add('active');
+        
+        // Trigger load bar transition restart
+        const fills = targetPane.querySelectorAll('.load-bar-fill');
+        fills.forEach(fill => {
+          const widthStr = fill.style.width;
+          fill.style.width = '0%';
+          setTimeout(() => {
+            fill.style.width = widthStr;
+          }, 50);
+        });
+      }
+    }
+
+    // Initialize logic on load
+    document.addEventListener('DOMContentLoaded', () => {
+      startTimer();
+      calculatePRs();
+      // Trigger initial load bar animations
+      switchCurriculumPhase(1);
+    });
+  </script>
+</body>
+</html>

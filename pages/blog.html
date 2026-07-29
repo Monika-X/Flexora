@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexora | Blog</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <script src="../js/theme.js"></script>
+  <script src="../js/rtl.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/form-validation.js"></script>
+  <script src="../js/script.js"></script>
+</head>
+<body>
+
+  <!-- 1. Hero / Intro -->
+  <section class="hero-section hero-dark" style="padding: 150px 0 80px; text-align: center; border-bottom: 1px solid var(--color-border); background-image: linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.9)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container reveal">
+      <h1 style="font-size: 4rem; text-transform: uppercase;">The Flexora <span class="text-primary">Journal</span></h1>
+      <p style="color: var(--color-text); font-size: 1.2rem; max-width: 600px; margin: 1rem auto 0;">Training strategies, nutrition protocols, and community stories.</p>
+    </div>
+  </section>
+
+  <!-- 2. Featured Post -->
+  <section style="background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%); padding: 80px 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="card reveal hover-lift" data-category="training" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); padding: 0; overflow: hidden; border: 2px solid var(--color-primary); box-shadow: 0 10px 30px rgba(214,255,63,0.15);">
+        <div class="image-overlay-zoom" style="height: 100%; min-height: 400px; overflow: hidden;">
+          <img src="https://images.unsplash.com/photo-1534368270820-9de3d8053204?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Powerlifting Diet" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="blog-featured-content" style="display: flex; flex-direction: column; justify-content: center;">
+          <span style="color: var(--color-secondary); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px;">Training &bull; Featured</span>
+          <h2 style="margin-bottom: 1.5rem; font-size: 2.5rem; line-height: 1.2;">The Ultimate Powerlifting Diet Protocol</h2>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">Discover the exact macronutrient breakdown our elite athletes use to peak for competition without sacrificing energy or strength.</p>
+          <div style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--color-text-muted); display: flex; align-items: center; gap: 15px;">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=100&q=80" alt="Coach Mike" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+            <div>
+              <strong>By Mike T.</strong><br>
+              Oct 12, 2026
+            </div>
+          </div>
+          <a href="blog-details-powerlifting.html" class="btn btn-primary pulse-border hover-scale" style="align-self: flex-start; padding: 12px 30px;">Read Article</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Category Filters -->
+  <section style="padding: 60px 0 20px;">
+    <div class="container reveal text-center">
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-primary filter-btn active hover-lift" data-filter="all" style="padding: 10px 25px;">All Articles</button>
+        <button class="btn btn-secondary filter-btn hover-lift" data-filter="training" style="padding: 10px 25px;">Training</button>
+        <button class="btn btn-secondary filter-btn hover-lift" data-filter="nutrition" style="padding: 10px 25px;">Nutrition</button>
+        <button class="btn btn-secondary filter-btn hover-lift" data-filter="community" style="padding: 10px 25px;">Community</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Post Grid -->
+  <section style="padding: 40px 0 80px;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2.5rem;">
+        
+        <div class="card hover-lift reveal delay-100 blog-post" data-category="nutrition" style="padding: 0; overflow: hidden; border: 1px solid var(--color-border); display: flex; flex-direction: column;">
+          <div class="image-overlay-zoom" style="height: 250px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Healthy Meal" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1;">
+            <span style="color: var(--color-primary); font-size: 0.85rem; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; margin-bottom: 10px;">Nutrition</span>
+            <h3 style="margin: 0 0 15px; font-size: 1.5rem; line-height: 1.3;">Post-Workout Macros Explained</h3>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 25px; flex: 1;">Why the anabolic window matters and how to fuel properly for maximum recovery.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 15px;">
+              <span style="font-size: 0.85rem; color: var(--color-text-muted);">Oct 05, 2026</span>
+              <a href="blog-details-macros.html" class="underline-draw text-secondary" style="font-weight: bold;">Read More &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card hover-lift reveal delay-200 blog-post" data-category="community" style="padding: 0; overflow: hidden; border: 1px solid var(--color-border); display: flex; flex-direction: column;">
+          <div class="image-overlay-zoom" style="height: 250px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Member Success" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1;">
+            <span style="color: var(--color-primary); font-size: 0.85rem; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; margin-bottom: 10px;">Community</span>
+            <h3 style="margin: 0 0 15px; font-size: 1.5rem; line-height: 1.3;">Member Spotlight: Sarah's Journey</h3>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 25px; flex: 1;">How Sarah dropped 30lbs and found a passion for heavy lifting in our powerlifting class.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 15px;">
+              <span style="font-size: 0.85rem; color: var(--color-text-muted);">Sep 28, 2026</span>
+              <a href="blog-details-sarah.html" class="underline-draw text-secondary" style="font-weight: bold;">Read More &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card hover-lift reveal delay-300 blog-post" data-category="training" style="padding: 0; overflow: hidden; border: 1px solid var(--color-border); display: flex; flex-direction: column;">
+          <div class="image-overlay-zoom" style="height: 250px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=800&q=80" alt="Cardio Training" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1;">
+            <span style="color: var(--color-primary); font-size: 0.85rem; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; margin-bottom: 10px;">Training</span>
+            <h3 style="margin: 0 0 15px; font-size: 1.5rem; line-height: 1.3;">HIIT vs Steady State Cardio</h3>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 25px; flex: 1;">Which form of cardio is best for fat loss and muscle retention? We break down the science.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 15px;">
+              <span style="font-size: 0.85rem; color: var(--color-text-muted);">Sep 15, 2026</span>
+              <a href="blog-details-cardio.html" class="underline-draw text-secondary" style="font-weight: bold;">Read More &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Popular Tags -->
+  <section style="background-color: var(--color-bg-alt); padding: 80px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container reveal text-center">
+      <h3 style="margin-bottom: 2rem; font-family: var(--font-heading); font-size: 2rem;">Trending Topics</h3>
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="blog-details-powerlifting.html" class="hover-lift" style="text-decoration: none; display: inline-block; background: var(--color-bg); padding: 10px 25px; border-radius: 30px; border: 1.5px solid var(--color-primary); color: var(--color-primary); font-weight: bold;">#PowerliftingDiet</a>
+        <a href="blog-details-macros.html" class="hover-lift" style="text-decoration: none; display: inline-block; background: var(--color-bg); padding: 10px 25px; border-radius: 30px; border: 1.5px solid var(--color-border); color: var(--color-text); font-weight: bold;">#ProteinMacros</a>
+        <a href="blog-details-cardio.html" class="hover-lift" style="text-decoration: none; display: inline-block; background: var(--color-bg); padding: 10px 25px; border-radius: 30px; border: 1.5px solid var(--color-border); color: var(--color-text); font-weight: bold;">#CardioBurn</a>
+        <a href="blog-details-sarah.html" class="hover-lift" style="text-decoration: none; display: inline-block; background: var(--color-bg); padding: 10px 25px; border-radius: 30px; border: 1.5px solid var(--color-primary); color: var(--color-primary); font-weight: bold;">#FlexoraFam Spotlight</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Related Resources -->
+  <section style="padding: 100px 0;">
+    <div class="container reveal">
+      <div class="section-header text-center" style="margin-bottom: 4rem;">
+        <h2 style="font-size: 2.5rem;">Free Resources</h2>
+        <p style="color: var(--color-text-muted); font-size: 1.1rem;">Download our exclusive guides to optimize your results.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 3rem;">
+        <div class="card hover-lift reveal delay-100" style="padding: 3rem; text-align: center; border: 2px solid var(--color-primary); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+          <i class="fas fa-file-pdf text-primary" style="font-size: 4rem; margin-bottom: 1.5rem; text-shadow: 0 0 15px rgba(214,255,63,0.3);"></i>
+          <h4 style="font-size: 1.5rem; margin-bottom: 15px;">Macro Cheat Sheet</h4>
+          <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">A printable guide to calculating your bulking and cutting macros accurately.</p>
+          <a href="../pdf/Flexora_Macro_Cheat_Sheet.pdf" download class="btn btn-secondary pulse-border" style="padding: 10px 25px; text-decoration: none; display: inline-block;">Download PDF</a>
+        </div>
+        <div class="card hover-lift reveal delay-200" style="padding: 3rem; text-align: center; border: 2px solid var(--color-secondary); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+          <i class="fas fa-file-pdf text-secondary" style="font-size: 4rem; margin-bottom: 1.5rem; text-shadow: 0 0 15px rgba(255,90,54,0.3);"></i>
+          <h4 style="font-size: 1.5rem; margin-bottom: 15px;">Mobility Flow</h4>
+          <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">A 10-minute full-body warm-up routine to prevent injuries before heavy lifting.</p>
+          <a href="../pdf/Flexora_Mobility_Flow.pdf" download class="btn btn-secondary pulse-border" style="padding: 10px 25px; text-decoration: none; display: inline-block;">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Newsletter Signup -->
+  <section class="hover-scale reveal" style="background-color: var(--color-bg-alt); padding: 80px 0; border-radius: 0; border: 1px solid var(--color-border);">
+    <div class="container text-center">
+      <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Never Miss a Post</h2>
+      <p style="color: var(--color-text-muted); margin-bottom: 2.5rem; font-size: 1.1rem;">Get our latest training articles delivered straight to your inbox.</p>
+      <form class="newsletter-form" style="display: flex; justify-content: center; max-width: 600px; margin: 0 auto; gap: 15px; flex-wrap: wrap;">
+        <input type="email" class="form-control" placeholder="Enter your email address" required style="flex: 1; min-width: 250px; padding: 15px;">
+        <button type="submit" class="btn btn-primary" style="padding: 15px 30px;">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>

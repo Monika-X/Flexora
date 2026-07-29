@@ -1,0 +1,164 @@
+/* Base and Global Styles */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,300&f[]=satoshi@900,700,500,300,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+::placeholder {
+  color: var(--color-text-muted) !important;
+  opacity: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  direction: var(--direction);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-text);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: var(--section-padding);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: var(--font-size-section);
+  color: var(--color-primary-text);
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: var(--font-size-sub);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  background: var(--color-primary-transparent);
+  color: var(--color-primary-text);
+  border: 1px solid rgba(214,255,63,0.3);
+  border-radius: 30px;
+  padding: 6px 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+/* Utilities */
+.text-primary {
+  color: var(--color-primary-text);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* Hero Sections with Hardcoded Dark Backgrounds */
+.hero-dark {
+  color: #ffffff !important;
+}
+.hero-dark h1, .hero-dark h2, .hero-dark h3, .hero-dark h4, .hero-dark p {
+  color: #ffffff !important;
+}
+.hero-dark .text-primary {
+  color: var(--color-primary) !important;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center !important;
+}
+
+.blog-featured-content {
+  padding: 4rem;
+}
+
+.contact-form-card {
+  padding: 3rem;
+}
+
+.contact-info-card {
+  padding: 2rem;
+}
+
+/* Spacing Overrides to Reduce White Space globally */
+section, 
+[style*="padding: 100px 0"], 
+[style*="padding: 80px 0"], 
+[style*="padding:100px 0"], 
+[style*="padding:80px 0"],
+[style*="padding: 120px 0"],
+.pricing-section,
+.classes-section,
+.features-section,
+.cta-section {
+  padding: var(--section-padding) !important;
+}
+
+.section-header {
+  margin-bottom: 3.5rem !important;
+}

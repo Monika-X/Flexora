@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexora | Class Schedule</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <script src="../js/theme.js"></script>
+  <script src="../js/rtl.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/script.js"></script>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero-section hero-dark" style="padding: 150px 0 80px; text-align: center; border-bottom: 1px solid var(--color-border); background-image: linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.9)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container reveal">
+      <h1 style="font-size: 4rem; text-transform: uppercase;">Class <span class="text-primary">Schedule</span></h1>
+      <p style="font-size: 1.2rem; color: var(--color-text); max-width: 600px; margin: 1rem auto 0;">Plan your week. Push your limits. See you on the floor.</p>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section style="padding: 80px 0;">
+    <div class="container">
+      <div class="section-header reveal text-center">
+        <h2>Weekly Timetable</h2>
+        <p>Book your spot early. Classes fill up fast.</p>
+      </div>
+      
+      <!-- Filters -->
+      <div class="reveal filter-buttons" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+        <button class="btn btn-primary filter-btn" data-filter="all">All Days</button>
+        <button class="btn btn-secondary filter-btn" data-filter="monday">Monday</button>
+        <button class="btn btn-secondary filter-btn" data-filter="tuesday">Tuesday</button>
+        <button class="btn btn-secondary filter-btn" data-filter="wednesday">Wednesday</button>
+        <button class="btn btn-secondary filter-btn" data-filter="thursday">Thursday</button>
+        <button class="btn btn-secondary filter-btn" data-filter="friday">Friday</button>
+        <button class="btn btn-secondary filter-btn" data-filter="weekend">Weekend</button>
+      </div>
+
+      <!-- Schedule Cards Grid -->
+      <div id="schedule-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        
+        <!-- Monday -->
+        <div class="card schedule-card reveal delay-100 hover-lift" data-day="monday" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-left: 4px solid var(--color-primary);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="margin: 0; font-size: 1.4rem;">HIIT Burn</h3>
+              <span style="color: var(--color-primary); font-weight: bold; font-size: 0.9rem;">Monday &bull; 06:00 AM</span>
+            </div>
+            <span class="badge badge-active">45 Min</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--color-text-muted); font-size: 0.95rem;">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=50&q=80" alt="Trainer" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+            Trainer: Mike Thompson
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">High intensity interval training designed to maximize calorie burn and build cardiovascular endurance.</p>
+          <a href="./login.html" class="btn btn-secondary" style="text-align: center; margin-top: auto; padding: 10px;">Book Class</a>
+        </div>
+
+        <div class="card schedule-card reveal delay-200 hover-lift" data-day="monday" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-left: 4px solid var(--color-secondary);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="margin: 0; font-size: 1.4rem;">Yoga Flow</h3>
+              <span style="color: var(--color-secondary); font-weight: bold; font-size: 0.9rem;">Monday &bull; 08:00 AM</span>
+            </div>
+            <span class="badge badge-inactive" style="color: var(--color-secondary);">60 Min</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--color-text-muted); font-size: 0.95rem;">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=50&q=80" alt="Trainer" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+            Trainer: Sarah Jenkins
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">A dynamic vinyasa flow focused on breath, flexibility, and core strength.</p>
+          <a href="./login.html" class="btn btn-secondary" style="text-align: center; margin-top: auto; padding: 10px;">Book Class</a>
+        </div>
+
+        <!-- Tuesday -->
+        <div class="card schedule-card reveal delay-300 hover-lift" data-day="tuesday" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-left: 4px solid var(--color-primary);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="margin: 0; font-size: 1.4rem;">Powerlifting</h3>
+              <span style="color: var(--color-primary); font-weight: bold; font-size: 0.9rem;">Tuesday &bull; 05:30 PM</span>
+            </div>
+            <span class="badge badge-active">90 Min</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--color-text-muted); font-size: 0.95rem;">
+            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=50&q=80" alt="Trainer" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+            Trainer: David Chen
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">Focus on the big three: squat, bench, and deadlift. Perfect your form and build raw strength.</p>
+          <a href="./login.html" class="btn btn-secondary" style="text-align: center; margin-top: auto; padding: 10px;">Book Class</a>
+        </div>
+
+        <!-- Wednesday -->
+        <div class="card schedule-card reveal delay-100 hover-lift" data-day="wednesday" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-left: 4px solid var(--color-secondary);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="margin: 0; font-size: 1.4rem;">Spin Studio</h3>
+              <span style="color: var(--color-secondary); font-weight: bold; font-size: 0.9rem;">Wednesday &bull; 07:00 AM</span>
+            </div>
+            <span class="badge badge-inactive" style="color: var(--color-secondary);">45 Min</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--color-text-muted); font-size: 0.95rem;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=50&q=80" alt="Trainer" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+            Trainer: Emma Watson
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">High-energy indoor cycling with immersive audio and visual motivation.</p>
+          <a href="./login.html" class="btn btn-secondary" style="text-align: center; margin-top: auto; padding: 10px;">Book Class</a>
+        </div>
+
+        <!-- Thursday -->
+        <div class="card schedule-card reveal delay-200 hover-lift" data-day="thursday" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-left: 4px solid var(--color-primary);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="margin: 0; font-size: 1.4rem;">CrossFit WOD</h3>
+              <span style="color: var(--color-primary); font-weight: bold; font-size: 0.9rem;">Thursday &bull; 06:00 PM</span>
+            </div>
+            <span class="badge badge-active">60 Min</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--color-text-muted); font-size: 0.95rem;">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=50&q=80" alt="Trainer" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+            Trainer: Mike Thompson
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">Constantly varied functional movements executed at high intensity across broad time modalities.</p>
+          <a href="./login.html" class="btn btn-secondary" style="text-align: center; margin-top: auto; padding: 10px;">Book Class</a>
+        </div>
+
+        <!-- Friday -->
+        <div class="card schedule-card reveal delay-300 hover-lift" data-day="friday" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-left: 4px solid var(--color-secondary);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="margin: 0; font-size: 1.4rem;">Mobility & Core</h3>
+              <span style="color: var(--color-secondary); font-weight: bold; font-size: 0.9rem;">Friday &bull; 05:00 PM</span>
+            </div>
+            <span class="badge badge-inactive" style="color: var(--color-secondary);">45 Min</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--color-text-muted); font-size: 0.95rem;">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=50&q=80" alt="Trainer" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+            Trainer: Sarah Jenkins
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">End your week right by improving joint health, flexibility, and strengthening your core.</p>
+          <a href="./login.html" class="btn btn-secondary" style="text-align: center; margin-top: auto; padding: 10px;">Book Class</a>
+        </div>
+
+        <!-- Weekend -->
+        <div class="card schedule-card reveal delay-100 hover-lift" data-day="weekend" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-left: 4px solid var(--color-primary);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="margin: 0; font-size: 1.4rem;">Weekend Warrior</h3>
+              <span style="color: var(--color-primary); font-weight: bold; font-size: 0.9rem;">Saturday &bull; 09:00 AM</span>
+            </div>
+            <span class="badge badge-active">90 Min</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--color-text-muted); font-size: 0.95rem;">
+            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=50&q=80" alt="Trainer" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+            Trainer: David Chen
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">An intense full-body circuit training session designed to push your limits with a large group.</p>
+          <a href="./login.html" class="btn btn-secondary" style="text-align: center; margin-top: auto; padding: 10px;">Book Class</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Schedule Filtering Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const scheduleCards = document.querySelectorAll('.schedule-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active button classes
+          filterBtns.forEach(b => {
+            b.classList.remove('btn-primary');
+            b.classList.add('btn-secondary');
+          });
+          btn.classList.remove('btn-secondary');
+          btn.classList.add('btn-primary');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          // Filter the cards
+          scheduleCards.forEach(card => {
+            if (filterValue === 'all' || card.getAttribute('data-day') === filterValue) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

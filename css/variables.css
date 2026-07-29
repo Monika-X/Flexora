@@ -1,0 +1,110 @@
+/* Flexora Global Variables */
+
+:root {
+  /* Fonts */
+  --font-heading: 'Clash Display', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+
+  /* Base Colors - Default is Dark Theme based on instructions */
+  /* Volt Lime: #D6FF3F */
+  /* Deep Ember: #FF5A36 */
+  
+  --color-primary: #D6FF3F;
+  --color-primary-transparent: rgba(214, 255, 63, 0.1);
+  --color-primary-text: #D6FF3F;
+  --color-secondary: #FF5A36;
+  
+  /* Dark Theme Colors */
+  --color-bg: #121212; /* Charcoal-Dark */
+  --color-bg-alt: #1a1a1a;
+  --color-surface: var(--color-bg-alt);
+  --color-text: #F5F5F5;
+  --color-text-muted: #A0A0A0;
+  --color-border: #333333;
+  --color-primary-hover: #c2eb35;
+  
+  /* Elevation Shadows (Dark) */
+  --shadow-sm: 0 4px 6px rgba(0,0,0,0.3);
+  --shadow-md: 0 10px 15px rgba(0,0,0,0.4);
+  --shadow-lg: 0 20px 25px rgba(0,0,0,0.5);
+  
+  /* Glassmorphism & Overrides (Dark Default) */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg-strong: rgba(30, 30, 30, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-faint: rgba(255, 255, 255, 0.05);
+  --text-inverse: #ffffff;
+  --input-bg: rgba(0, 0, 0, 0.3);
+  --input-bg-solid: rgba(18, 18, 18, 0.8);
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  
+  /* Layout & Spacing */
+  --container-width: 1200px;
+  --section-padding: 80px 0;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.8rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Typography Scale */
+  --font-size-hero: clamp(3rem, 5vw, 4.5rem);
+  --font-size-section: clamp(2rem, 4vw, 3rem);
+  --font-size-sub: clamp(1rem, 2vw, 1.25rem);
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-normal: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-slow: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  /* RTL Default Tokens */
+  --direction: ltr;
+  --align-start: left;
+  --align-end: right;
+  --margin-start: margin-left;
+  --margin-end: margin-right;
+  --padding-start: padding-left;
+  --padding-end: padding-right;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+  --color-bg: #F8FAFC;
+  --color-bg-alt: #F1F5F9;
+  --color-surface: #FFFFFF;
+  --color-text: #111827;
+  --color-text-muted: #4B5563;
+  --color-border: #D1D5DB;
+  
+  /* Lime Brand Overrides */
+  --color-primary: #84CC16;
+  --color-primary-text: #84CC16;
+  --color-primary-hover: #65A30D;
+  
+  /* Elevation Shadows (Light) */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+
+  /* Glassmorphism & Overrides (Light Mode) */
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-bg-strong: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-border-faint: rgba(0, 0, 0, 0.05);
+  --text-inverse: #121212;
+  --input-bg: rgba(255, 255, 255, 0.7);
+  --input-bg-solid: rgba(255, 255, 255, 0.8);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --color-primary-text: #2d3b00; /* Darker, high-contrast green for light mode */
+}
+
+/* Direction Handling */
+[dir="rtl"] {
+  --direction: rtl;
+  --align-start: right;
+  --align-end: left;
+  --margin-start: margin-right;
+  --margin-end: margin-left;
+  --padding-start: padding-right;
+  --padding-end: padding-left;
+}

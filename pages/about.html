@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexora | About Us</title>
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/rtl.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/script.js"></script>
+
+  <style>
+    .timeline-step-node.active .node-circle {
+      border-color: var(--color-primary) !important;
+      box-shadow: 0 0 12px var(--color-primary);
+      background: var(--color-primary) !important;
+    }
+    .timeline-step-node.active .node-year {
+      color: var(--color-primary) !important;
+    }
+    .node-year {
+      font-size: 1.2rem;
+      margin-top: 5px;
+      font-family: var(--font-heading);
+      transition: color 0.3s;
+    }
+    @media (max-width: 768px) {
+      .timeline-card-container {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+      }
+      .timeline-card-container #timeline-dynamic-img {
+        height: 250px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Hero -->
+  <section class="hero-section hero-dark"
+    style="padding: 150px 0 80px; text-align: center; border-bottom: 1px solid var(--color-border); background-image: linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.9)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container reveal">
+      <h1 style="font-size: 4rem; text-transform: uppercase;">Our <span class="text-primary">Story</span></h1>
+      <p style="font-size: 1.2rem; color: #fff; max-width: 600px; margin: 1rem auto 0;">Forged in iron. Built by
+        community.</p>
+    </div>
+  </section>
+
+  <!-- 2. Mission -->
+  <section style="padding: 100px 0; overflow: hidden; position: relative;">
+    <div class="container">
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; align-items: center;">
+
+        <!-- Left: Image Composition -->
+        <div class="reveal" style="position: relative; height: 100%; min-height: 400px;">
+          <div style="position: absolute; top: 0; left: 0; width: 80%; height: 80%; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); z-index: 2;">
+            <img src="https://images.unsplash.com/photo-1623874514711-0f321325f318?w=600&auto=format&fit=crop&q=60" alt="Gym Community" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="position: absolute; bottom: 0; right: 0; width: 60%; height: 60%; border-radius: 16px; overflow: hidden; box-shadow: 15px 15px 40px rgba(0,0,0,0.4); z-index: 3; border: 4px solid var(--color-bg);">
+            <img src="https://images.unsplash.com/photo-1652363723082-b1fdca4bdbd2?w=600&auto=format&fit=crop&q=60" alt="Training Focus" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <!-- Background Glow -->
+          <div
+            style="position: absolute; top: 20%; right: 10%; width: 200px; height: 200px; background: var(--color-primary-transparent); filter: blur(60px); border-radius: 50%; z-index: 1;">
+          </div>
+        </div>
+
+        <!-- Right: Text Content -->
+        <div class="reveal delay-100" style="padding-left: 2rem;">
+          <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem; font-family: var(--font-heading); line-height: 1.1;">The
+            <span class="text-primary">Mission</span></h2>
+          <div
+            style="width: 60px; height: 4px; background-color: var(--color-primary); margin-bottom: 2rem; border-radius: 2px;">
+          </div>
+          <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem;">To
+            elevate the standard of fitness in our neighborhood by providing world-class facilities paired with a
+            supportive, results-driven community.</p>
+          <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8;">We don't believe in quick
+            fixes or empty promises. We believe in showing up, doing the work, and celebrating the progress together.
+          </p>
+          <div style="margin-top: 3rem; display: flex; align-items: center; gap: 1.5rem;">
+            <div
+              style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--color-bg-alt); border: 1px solid var(--color-border); display: flex; justify-content: center; align-items: center;">
+              <i class="fas fa-quote-left" style="color: var(--color-primary); font-size: 1.2rem;"></i>
+            </div>
+            <p style="font-style: italic; font-weight: 600; margin: 0; font-size: 1.1rem; color: var(--color-text);">
+              "Forged in iron. Built by community."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Stats -->
+  <section style="background-color: var(--color-bg-alt); padding: 80px 0;">
+    <div class="container text-center">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+        <div class="reveal hover-lift">
+          <div class="stat-counter" data-target="5204" data-suffix="+"
+            style="font-size: 4rem; font-weight: bold; color: var(--color-primary); line-height: 1;">0</div>
+          <p
+            style="color: var(--color-text-muted); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;">
+            Active Members</p>
+        </div>
+        <div class="reveal delay-100 hover-lift">
+          <div class="stat-counter" data-target="12"
+            style="font-size: 4rem; font-weight: bold; color: var(--color-primary); line-height: 1;">0</div>
+          <p
+            style="color: var(--color-text-muted); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;">
+            Elite Trainers</p>
+        </div>
+        <div class="reveal delay-200 hover-lift">
+          <div class="stat-counter" data-target="42" data-suffix="+"
+            style="font-size: 4rem; font-weight: bold; color: var(--color-primary); line-height: 1;">0</div>
+          <p
+            style="color: var(--color-text-muted); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;">
+            Classes per Week</p>
+        </div>
+        <div class="reveal delay-300 hover-lift">
+          <div class="stat-counter" data-target="2018"
+            style="font-size: 4rem; font-weight: bold; color: var(--color-primary); line-height: 1;">0</div>
+          <p
+            style="color: var(--color-text-muted); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;">
+            Year Founded</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.5 The Flexora Journey (Timeline Stepper) -->
+  <!-- 3.5 The Flexora Journey (Horizontal Timeline Stepper) -->
+  <section style="padding: 100px 0; border-bottom: 1px solid var(--color-border); position: relative; overflow: hidden;">
+    <div class="container">
+      <div class="section-header reveal text-center" style="text-align: center; margin-bottom: 4rem;">
+        <span style="display: inline-block; background: var(--color-primary-transparent); color: var(--color-primary); border: 1px solid rgba(214,255,63,0.3); border-radius: 30px; padding: 6px 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Our Roots</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-heading);">The Flexora <span class="text-primary">Journey</span></h2>
+        <p style="color: var(--color-text-muted); font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Trace our evolution from a modest neighborhood garage box to the city's premier performance sanctuary.</p>
+      </div>
+
+      <!-- Horizontal Progress Bar Year Selector -->
+      <div style="max-width: 800px; margin: 0 auto 4rem; position: relative; padding: 0 40px;">
+        <div style="position: absolute; top: 50%; left: 40px; right: 40px; height: 4px; background: var(--color-border); transform: translateY(-50%); z-index: 1;">
+          <div id="timeline-progress-bar" style="width: 0%; height: 100%; background: var(--color-primary); transition: width 0.4s ease;"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; position: relative; z-index: 2;">
+          <!-- Node 2018 -->
+          <div class="timeline-step-node active" onclick="showTimelineStep(1)" style="cursor: pointer; text-align: center; width: 80px;">
+            <div class="node-circle" style="width: 24px; height: 24px; border-radius: 50%; background: var(--color-bg); border: 3px solid var(--color-primary); margin: 0 auto 10px; transition: all 0.3s; box-shadow: 0 0 10px var(--color-primary);"></div>
+            <div class="node-year" style="font-weight: 800; color: var(--color-primary);">2018</div>
+          </div>
+          <!-- Node 2021 -->
+          <div class="timeline-step-node" onclick="showTimelineStep(2)" style="cursor: pointer; text-align: center; width: 80px;">
+            <div class="node-circle" style="width: 24px; height: 24px; border-radius: 50%; background: var(--color-bg); border: 3px solid var(--color-border); margin: 0 auto 10px; transition: all 0.3s;"></div>
+            <div class="node-year" style="font-weight: 800; color: var(--color-text-muted);">2021</div>
+          </div>
+          <!-- Node 2025 -->
+          <div class="timeline-step-node" onclick="showTimelineStep(3)" style="cursor: pointer; text-align: center; width: 80px;">
+            <div class="node-circle" style="width: 24px; height: 24px; border-radius: 50%; background: var(--color-bg); border: 3px solid var(--color-border); margin: 0 auto 10px; transition: all 0.3s;"></div>
+            <div class="node-year" style="font-weight: 800; color: var(--color-text-muted);">2025</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline details grid card -->
+      <div class="card timeline-card-container" style="max-width: 1000px; margin: 0 auto; background: var(--color-bg-alt); padding: 0; overflow: hidden; border-radius: 24px; border: 1px solid var(--color-border); height: 520px; display: grid; grid-template-columns: 1fr 1fr;">
+        
+        <!-- Left: Dynamic Image -->
+        <div style="position: relative; height: 100%; overflow: hidden;">
+          <img id="timeline-dynamic-img" src="https://plus.unsplash.com/premium_photo-1664301226369-1b8fdf5bef6f?w=600&auto=format&fit=crop&q=60" alt="Journey Phase" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s ease, transform 0.4s ease;">
+        </div>
+
+        <!-- Right: Text Content panels -->
+        <div style="padding: 3rem; display: flex; flex-direction: column; justify-content: center;">
+          <!-- Step 1 Content -->
+          <div id="timeline-content-1" class="timeline-panel" style="transition: opacity 0.4s ease; opacity: 1;">
+            <div style="color: var(--color-secondary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem;"><i class="fas fa-hammer"></i> Foundation</div>
+            <h3 style="font-size: 2rem; font-family: var(--font-heading); margin-bottom: 1.5rem; text-transform: uppercase;">A Vision Born in a Garage</h3>
+            <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem;">Alex M. founded Flexora in a tiny garage in 2018. Equipped with just two barbell racks, a handful of iron plates, and a burning desire to create a training environment devoid of typical corporate gym gimmicks.</p>
+            <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8;">Our focus was simple: teach perfect lifting mechanics, program structured progression, and foster a tightly-knit, supportive athlete crew.</p>
+          </div>
+
+          <!-- Step 2 Content -->
+          <div id="timeline-content-2" class="timeline-panel" style="display: none; transition: opacity 0.4s ease; opacity: 0;">
+            <div style="color: var(--color-secondary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem;"><i class="fas fa-users"></i> Growth</div>
+            <h3 style="font-size: 2rem; font-family: var(--font-heading); margin-bottom: 1.5rem; text-transform: uppercase;">Expanding the Sanctuary</h3>
+            <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem;">As word spread, our community outgrew the garage limits. In 2021, we migrated to our first warehouse facility. We brought in Coach Jamie to set up our recovery and yoga streams, bridging the gap between heavy lifting and joint mobility.</p>
+            <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8;">With over 1,000 active members, we proved that scientific training combined with genuine team support could yield life-changing results.</p>
+          </div>
+
+          <!-- Step 3 Content -->
+          <div id="timeline-content-3" class="timeline-panel" style="display: none; transition: opacity 0.4s ease; opacity: 0;">
+            <div style="color: var(--color-secondary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem;"><i class="fas fa-trophy"></i> Evolution</div>
+            <h3 style="font-size: 2rem; font-family: var(--font-heading); margin-bottom: 1.5rem; text-transform: uppercase;">The 10k Sq Ft Flagship</h3>
+            <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem;">In 2025, we opened our current 10,000 sq ft sanctuary, integrating premium Eleiko platforms, modern spin decks, advanced saunas, cold plunges, and in-house nutritionists.</p>
+            <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8;">This flagship space establishes Flexora as the region's ultimate performance lifestyle brand.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Team -->
+  <section style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-header reveal" style="margin: 0 auto 4rem; text-align: center;">
+        <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Our Team</h2>
+        <p
+          style="text-align: center; line-height: 1.8; color: var(--color-text-muted); max-width: 700px; margin: 0 auto; padding: 0 20px;">
+          Expert coaches, registered dietitians, and certified strength specialists dedicated to unlocking your athletic
+          potential through science-backed training.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="card reveal hover-lift text-center image-overlay-zoom" style="overflow: hidden;">
+          <div style="height: 300px; overflow: hidden;">
+            <img src="https://media.istockphoto.com/id/2106920417/photo/upset-and-disappointed-young-indian-man-sitting-on-the-steps-of-an-office-building-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=Ym7TXvf_aSiUYEtr3RaZEpdIIvXoSkrgcfuATjcU6IY="
+              alt="Alex M." style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Alex M.</h3>
+            <p class="text-primary"
+              style="margin-bottom: 1rem; font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Head Coach &
+              Founder</p>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6;">Former Olympic lifter with a
+              degree in Kinesiology. Alex built Flexora to create the ultimate training environment.</p>
+          </div>
+        </div>
+        <div class="card reveal delay-100 hover-lift text-center image-overlay-zoom" style="overflow: hidden;">
+          <div style="height: 300px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&w=600&q=80"
+              alt="Jamie T." style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Jamie T.</h3>
+            <p class="text-primary"
+              style="margin-bottom: 1rem; font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Mobility &
+              Yoga Director</p>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6;">Registered Yoga Teacher (RYT
+              500) specializing in athletic recovery, joint longevity, and mind-muscle connection.</p>
+          </div>
+        </div>
+        <div class="card reveal delay-200 hover-lift text-center image-overlay-zoom" style="overflow: hidden;">
+          <div style="height: 300px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=600&q=80"
+              alt="Chris L." style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Chris L.</h3>
+            <p class="text-primary"
+              style="margin-bottom: 1rem; font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Lead
+              Nutritionist</p>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6;">Registered Dietitian
+              specializing in sports performance. Chris ensures you are fueled correctly for maximum output and
+              recovery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Values -->
+  <section style="background-color: var(--color-bg-alt); padding: 80px 0;">
+    <div class="container text-center">
+      <h2 class="reveal" style="margin-bottom: 3rem; font-size: 2.5rem;">Core Values</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div class="reveal delay-100 hover-lift card" style="padding: 2rem;">
+          <i class="fas fa-fire text-primary" style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
+          <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Passion</h4>
+          <p style="color: var(--color-text-muted);">We bring 100% effort to the floor every single day.</p>
+        </div>
+        <div class="reveal delay-200 hover-lift card" style="padding: 2rem; border-color: var(--color-primary);">
+          <i class="fas fa-shield-alt text-primary" style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
+          <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Integrity</h4>
+          <p style="color: var(--color-text-muted);">No shortcuts. Perfect form and hard work.</p>
+        </div>
+        <div class="reveal delay-300 hover-lift card" style="padding: 2rem;">
+          <i class="fas fa-level-up-alt text-primary" style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
+          <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Growth</h4>
+          <p style="color: var(--color-text-muted);">We push boundaries to unlock your full potential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. World-Class Facility -->
+  <section
+    style="padding: 100px 0; background-color: var(--color-bg-alt); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+        <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">World-Class Facility</h2>
+        <p style="color: var(--color-text-muted); font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Over 10,000 sq
+          ft engineered for elite performance, athletic longevity, and premium comfort.</p>
+      </div>
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+        <div class="card reveal hover-lift" style="padding: 2.5rem; background: var(--color-bg);">
+          <i class="fas fa-dumbbell text-primary" style="font-size: 2.5rem; margin-bottom: 1.5rem;"></i>
+          <h3
+            style="font-size: 1.3rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+            Strength & Lifting</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Eleiko platforms,
+            competition-grade combo racks, calibrated steel plates, and specialized bars for powerlifting and
+            weightlifting.</p>
+        </div>
+
+        <div class="card reveal delay-100 hover-lift" style="padding: 2.5rem; background: var(--color-bg);">
+          <i class="fas fa-heartbeat text-secondary" style="font-size: 2.5rem; margin-bottom: 1.5rem;"></i>
+          <h3
+            style="font-size: 1.3rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+            Cardio & HIIT Deck</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Equipped with
+            Woodway treadmills, Concept2 rowers, and Assault bikes to maximize aerobic conditioning and interval
+            capacity.</p>
+        </div>
+
+        <div class="card reveal delay-200 hover-lift" style="padding: 2.5rem; background: var(--color-bg);">
+          <i class="fas fa-spa text-primary" style="font-size: 2.5rem; margin-bottom: 1.5rem;"></i>
+          <h3
+            style="font-size: 1.3rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+            Recovery & Yoga</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">A quiet,
+            temperature-controlled dedicated studio space for deep yoga flow, stretching, and guided mobility recovery
+            work.</p>
+        </div>
+
+        <div class="card reveal delay-300 hover-lift" style="padding: 2.5rem; background: var(--color-bg);">
+          <i class="fas fa-shower text-secondary" style="font-size: 2.5rem; margin-bottom: 1.5rem;"></i>
+          <h3
+            style="font-size: 1.3rem; margin-bottom: 10px; font-family: var(--font-heading); text-transform: uppercase;">
+            Premium Amenities</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Luxe changing
+            rooms, secure digital lockers, vanity stations, fresh towel service, and a protein refuel shake bar.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center;" class="reveal">
+        <a href="gallery.html" class="btn btn-secondary hover-lift" style="padding: 12px 30px;">Explore Facility Gallery
+          <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA -->
+  <section class="reveal hover-scale"
+    style="background-color: var(--color-primary); color: var(--color-bg); text-align: center; padding: 100px 0; border-radius: 0;">
+    <div class="container">
+      <h2 style="color: var(--color-bg); font-size: 3rem; text-transform: uppercase;">Be Part of the Story</h2>
+      <p
+        style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; color: var(--color-bg);">
+        The hardest step is the first one. Let's take it together.</p>
+      <a href="signup.html" class="btn btn-primary pulse-border hover-scale"
+        style="padding: 15px 40px; font-size: 1.1rem; margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Join Flexora</a>
+    </div>
+  </section>
+
+  <!-- Interactive Horizontal Timeline Stepper Script -->
+  <script>
+    const timelineImages = {
+      1: "https://plus.unsplash.com/premium_photo-1664301226369-1b8fdf5bef6f?w=600&auto=format&fit=crop&q=60",
+      2: "https://plus.unsplash.com/premium_photo-1661497506531-85f60b38642a?w=600&auto=format&fit=crop&q=60",
+      3: "https://images.unsplash.com/photo-1637430308606-86576d8fef3c?w=600&auto=format&fit=crop&q=60"
+    };
+
+    function showTimelineStep(step) {
+      // Update progress bar width
+      const progressPercent = (step - 1) * 50;
+      const progressBar = document.getElementById('timeline-progress-bar');
+      if (progressBar) {
+        progressBar.style.width = `${progressPercent}%`;
+      }
+
+      // Update node circles active states
+      document.querySelectorAll('.timeline-step-node').forEach((node, index) => {
+        const circle = node.querySelector('.node-circle');
+        const yearText = node.querySelector('.node-year');
+        if (index + 1 === step) {
+          node.classList.add('active');
+          if (circle) {
+            circle.style.borderColor = 'var(--color-primary)';
+            circle.style.background = 'var(--color-primary)';
+            circle.style.boxShadow = '0 0 12px var(--color-primary)';
+          }
+          if (yearText) {
+            yearText.style.color = 'var(--color-primary)';
+          }
+        } else {
+          node.classList.remove('active');
+          if (circle) {
+            circle.style.borderColor = 'var(--color-border)';
+            circle.style.background = 'var(--color-bg)';
+            circle.style.boxShadow = 'none';
+          }
+          if (yearText) {
+            yearText.style.color = 'var(--color-text-muted)';
+          }
+        }
+      });
+
+      // Update dynamic image with quick fade out/in
+      const img = document.getElementById('timeline-dynamic-img');
+      if (img) {
+        img.style.opacity = '0';
+        img.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          img.src = timelineImages[step];
+          img.style.opacity = '1';
+          img.style.transform = 'scale(1)';
+        }, 200);
+      }
+
+      // Toggle display of timeline text panels
+      document.querySelectorAll('.timeline-panel').forEach((panel, index) => {
+        if (index + 1 === step) {
+          panel.style.display = 'block';
+          setTimeout(() => {
+            panel.style.opacity = '1';
+          }, 50);
+        } else {
+          panel.style.opacity = '0';
+          panel.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexora | Gallery</title>
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/rtl.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/gallery.js"></script>
+  <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+  <!-- 1. Hero -->
+  <section class="hero-section hero-dark"
+    style="padding: 150px 0 80px; text-align: center; border-bottom: 1px solid var(--color-border); background-image: linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.9)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container reveal">
+      <h1 style="font-size: 4rem; text-transform: uppercase;">Facility <span class="text-primary">Gallery</span></h1>
+      <p style="font-size: 1.2rem; color: var(--color-text); max-width: 600px; margin: 1rem auto 0;">Take a look inside
+        the best training facility in the city.</p>
+    </div>
+  </section>
+
+  <!-- 2. Filters -->
+  <section style="padding: 60px 0 20px;">
+    <div class="container text-center reveal">
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <button class="btn btn-primary filter-btn active hover-lift" data-filter="all"
+          style="padding: 10px 25px;">All</button>
+        <button class="btn btn-secondary filter-btn hover-lift" data-filter="equipment"
+          style="padding: 10px 25px;">Equipment</button>
+        <button class="btn btn-secondary filter-btn hover-lift" data-filter="classes"
+          style="padding: 10px 25px;">Classes</button>
+        <button class="btn btn-secondary filter-btn hover-lift" data-filter="facility"
+          style="padding: 10px 25px;">Facility</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Gallery Grid -->
+  <section style="padding: 40px 0 100px;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+        <!-- Image 1 -->
+        <div class="gallery-item reveal hover-lift image-overlay-zoom" data-category="equipment"
+          style="height: 300px; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80"
+            alt="Heavy Free Weights" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="overlay"
+            style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-search-plus" style="font-size: 2rem; color: var(--color-primary);"></i>
+          </div>
+        </div>
+        <!-- Image 2 -->
+        <div class="gallery-item reveal delay-100 hover-lift image-overlay-zoom" data-category="facility"
+          style="height: 300px; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+            alt="Main Turf Area" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="overlay"
+            style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-search-plus" style="font-size: 2rem; color: var(--color-primary);"></i>
+          </div>
+        </div>
+        <!-- Image 3 -->
+        <div class="gallery-item reveal delay-200 hover-lift image-overlay-zoom" data-category="classes"
+          style="height: 300px; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80"
+            alt="HIIT Group Class" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="overlay"
+            style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-search-plus" style="font-size: 2rem; color: var(--color-primary);"></i>
+          </div>
+        </div>
+        <!-- Image 4 -->
+        <div class="gallery-item reveal hover-lift image-overlay-zoom" data-category="equipment"
+          style="height: 300px; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;">
+          <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80"
+            alt="Powerlifting Racks" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="overlay"
+            style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-search-plus" style="font-size: 2rem; color: var(--color-primary);"></i>
+          </div>
+        </div>
+        <!-- Image 5 -->
+        <div class="gallery-item reveal delay-100 hover-lift image-overlay-zoom" data-category="facility"
+          style="height: 300px; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+            alt="Cardio Deck" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="overlay"
+            style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-search-plus" style="font-size: 2rem; color: var(--color-primary);"></i>
+          </div>
+        </div>
+        <!-- Image 6 -->
+        <div class="gallery-item reveal delay-200 hover-lift image-overlay-zoom" data-category="classes"
+          style="height: 300px; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;">
+          <img src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=800&q=80"
+            alt="Yoga Studio" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="overlay"
+            style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-search-plus" style="font-size: 2rem; color: var(--color-primary);"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Virtual Tour -->
+  <section style="background-color: var(--color-bg); padding: 120px 0; position: relative;">
+    <div class="container reveal" style="text-align: center;">
+      <h2 style="font-size: 3rem; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 2px;">Immersive <span
+          class="text-primary">3D Tour</span></h2>
+      <p style="color: var(--color-text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">Walk through
+        our 10,000 sq ft performance center from the comfort of your home. Experience the Flexora standard before you
+        even step through the doors.</p>
+
+      <div class="hover-lift"
+        style="position: relative; max-width: 1000px; height: 550px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px var(--card-shadow), 0 0 40px rgba(214,255,63,0.15); border: 1px solid var(--glass-border);">
+
+        <!-- Background Image -->
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80"
+          alt="Gym Panorama"
+          style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) contrast(1.2); transition: filter 0.5s ease;"
+          onmouseover="this.style.filter='brightness(0.3) contrast(1.2)'"
+          onmouseout="this.style.filter='brightness(0.5) contrast(1.2)'">
+
+        <!-- Interactive Overlay -->
+        <div
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none;">
+
+          <!-- Play Button Wrapper -->
+          <div id="tourPlayBtn" style="position: relative; margin-bottom: 25px; pointer-events: auto;">
+            <!-- Outer glowing pulse rings -->
+            <div
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 130px; height: 130px; border-radius: 50%; border: 2px solid rgba(214,255,63,0.5); animation: pulse 2s infinite ease-out;">
+            </div>
+            <div
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 160px; height: 160px; border-radius: 50%; border: 1px solid rgba(214,255,63,0.2); animation: pulse 2s infinite ease-out 0.5s;">
+            </div>
+
+            <!-- Glass button -->
+            <button id="tourPlayBtn"
+              style="position: relative; width: 90px; height: 90px; border-radius: 50%; background: var(--glass-border); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); color: var(--color-primary); font-size: 2.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 35px var(--card-shadow), inset 0 0 20px var(--glass-border);"
+              onmouseover="this.style.background='var(--color-primary)'; this.style.color='#121212'; this.style.transform='scale(1.15)'; this.style.boxShadow='0 20px 40px rgba(214,255,63,0.4)'"
+              onmouseout="this.style.background='var(--glass-border)'; this.style.color='var(--color-primary)'; this.style.transform='scale(1)'; this.style.boxShadow='0 15px 35px var(--card-shadow), inset 0 0 20px var(--glass-border)'">
+              <i class="fas fa-play" style="margin-left: 6px;"></i>
+            </button>
+          </div>
+
+          <h3
+            style="color: #ffffff; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 3px; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.9); font-weight: 800;">
+            Enter Facility</h3>
+          <p
+            style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500;">
+            Interactive 360&deg; Experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <section class="reveal hover-scale"
+    style="background-color: var(--color-primary); color: var(--color-bg); text-align: center; padding: 100px 0; border-radius: 0;">
+    <div class="container">
+      <h2 style="font-size: 3rem; margin-bottom: 1rem;">See it in person</h2>
+      <p style="font-size: 1.2rem; color: var(--color-bg); margin-bottom: 2rem;">Book a free day pass and experience
+        Flexora for yourself.</p>
+      <a href="contact.html" class="btn hover-lift"
+        style="background-color: var(--color-bg); color: var(--color-primary); padding: 15px 40px; font-size: 1.1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Schedule a Visit</a>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="galleryLightbox">
+    <button class="lightbox-close">&times;</button>
+    <div class="lightbox-content">
+      <!-- Content injected by JS -->
+    </div>
+  </div>
+
+</body>
+
+</html>
