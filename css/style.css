@@ -1,5 +1,5 @@
 /* Base and Global Styles */
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,300&f[]=satoshi@900,700,500,300,400&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700,800,900&f[]=satoshi@300,400,500,700,900&display=swap');
 
 * {
   margin: 0;
@@ -39,7 +39,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
